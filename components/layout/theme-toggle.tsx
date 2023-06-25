@@ -5,6 +5,7 @@ import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
 import { Icons } from "@/components/layout/icons"
+import { Switch } from "../ui/switch"
 
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme()
@@ -20,4 +21,21 @@ export function ThemeToggle() {
       <span className="sr-only">Toggle theme</span>
     </Button>
   )
+}
+
+export function ThemeToggleMobile() {
+  const { setTheme, theme } = useTheme();
+
+  return (
+    <form className="flex px-6 justify-between items-center text-muted-foreground">
+      <Icons.moon className={`h-8 w-8 ${theme === "dark" ? "text-accent-foreground" : "text-muted-foreground"}`}/>
+      <Switch
+        id="darkMode"
+        aria-label="darkMode"
+        onCheckedChange={() => setTheme(theme === "light" ? "dark" : "light")}
+        checked={theme === "dark"}
+        className="text-accent-foreground"
+      />
+    </form>
+  );
 }

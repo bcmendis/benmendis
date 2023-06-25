@@ -22,8 +22,8 @@ const SocialLinks = ({classname}: SocialStylesProps) => {
             variant: "ghost",
           })}
         >
-          <Icons.linkedIn className="h-5 w-5 fill-current" />
-          <span className="sr-only">Twitter</span>
+          <Icons.linkedIn className="h-8 w-8 sm:h-5 sm:w-5 fill-current" />
+          <span className="sr-only">LinkedIn</span>
         </div>
       </Link>
       <Link
@@ -37,7 +37,7 @@ const SocialLinks = ({classname}: SocialStylesProps) => {
             variant: "ghost",
           })}
         >
-          <Icons.gitHub className="h-5 w-5" />
+          <Icons.gitHub className="h-8 w-8 sm:h-5 sm:w-5" />
           <span className="sr-only">GitHub</span>
         </div>
       </Link>

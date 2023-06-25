@@ -10,13 +10,16 @@ import { usePathname } from "next/navigation";
 import {
   Sheet,
   SheetContent,
+  SheetClose,
   SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import SocialLinks from "./SocialLinks";
+import { ThemeToggleMobile } from "./theme-toggle";
 import { Separator } from "../ui/separator";
+
 
 
 interface NavItemProps {
@@ -67,15 +70,15 @@ export const SiteLinksMobile = ({items} : NavItemProps) => {
         <SheetTrigger className="flex justify-center items-center">
           <Icons.mobileMenuOpen />
         </SheetTrigger>
-        <SheetContent className="flex h-full justify-between">
-          <div className="flex-col flex-1 justify-between">
+        <SheetContent className="flex h-full">
+          <div className="flex-col flex-1 px-6 justify-between">
             {items?.length ? (
               <nav className="w-full gap-2">
                 {items?.map(
                   (item, index) =>
                     item.href && (
+                      <SheetClose asChild key={index}>
                       <Link
-                        key={index}
                         href={item.href}
                         className={cn(
                           `flex h-12 justify-end items-center text-2xl font-medium ${
@@ -88,12 +91,15 @@ export const SiteLinksMobile = ({items} : NavItemProps) => {
                       >
                         {item.title}
                       </Link>
+                      </SheetClose>
                     )
                 )}
               </nav>
             ) : null}
           </div>
-          <SocialLinks classname="flex w-full justify-between text-muted-foreground" />
+          <SocialLinks classname="flex px-6 w-full justify-between items-center text-muted-foreground" />
+          <Separator className="text-muted-foreground" />
+          <ThemeToggleMobile />
         </SheetContent>
       </Sheet>
     </div>
