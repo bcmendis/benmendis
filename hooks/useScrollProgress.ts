@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const useScrollProgress = () => {
+const useScrollProgress= () => {
   const [completion, setCompletion] = useState(0);
 
   useEffect(()=>{
