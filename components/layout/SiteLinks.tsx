@@ -40,7 +40,7 @@ export const SiteLinks = ({items} : NavItemProps) => {
                   className={cn(
                     `flex items-center text-sm font-medium ${
                       path === item.href
-                        ? "text-accent-foreground hover:text-muted-foreground"
+                        ? "text-accent-foreground"
                         : "text-muted-foreground hover:text-primary"
                     }`,
                     item.disabled && "cursor-not-allowed opacity-80"
