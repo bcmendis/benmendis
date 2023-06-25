@@ -24,10 +24,12 @@ export default function RootLayout({children}: RootLayoutProps) {
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="relative flex min-h-screen flex-col">
+          <main className="flex flex-col justify-start items-center min-h-screen">
             <NavBar />
-            <div className="flex-1">{children}</div>
-          </div>
+            <section className="flex flex-col w[90%] sm:w-[80%] items-center justify-between py-10 sm:py-24">
+              {children}
+            </section>
+          </main>
         </ThemeProvider>
       </body>
     </html>

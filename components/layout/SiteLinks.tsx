@@ -11,9 +11,6 @@ import {
   Sheet,
   SheetContent,
   SheetClose,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import SocialLinks from "./SocialLinks";
