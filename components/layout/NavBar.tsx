@@ -2,16 +2,16 @@ import Link from "next/link";
 
 import { NavItem } from "@/types/nav";
 import { siteConfig } from "@/config/site";
-import { buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/layout/icons";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { SiteLinks, SiteLinksMobile } from "./SiteLinks";
 import SocialLinks from "./SocialLinks";
+import useScrollProgress from "@/hooks/useScrollProgress";
+import ScrollIndicator from "./ScrollIndicator";
 
 const items : NavItem[] = siteConfig.siteLinks;
 
 const NavBar = () => {
-
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
       <div className="container flex h-16 justify-between items-center md:gap-10">
@@ -28,6 +28,7 @@ const NavBar = () => {
         </div>
         <SiteLinksMobile items={items} />
       </div>
+      <ScrollIndicator />
     </header>
   );
 };
