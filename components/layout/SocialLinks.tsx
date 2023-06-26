@@ -1,6 +1,7 @@
-import React from "react";
+"use client"
+
 import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
+import { Button} from "@/components/ui/button";
 import { Links } from "@/config/site";
 
 import {
@@ -21,22 +22,17 @@ const SocialLinks = ({classname}: SocialStylesProps) => {
       {Links?.length
         ? Links.map((link, index) => {
           return (
-            <TooltipProvider key={index}>
+            <TooltipProvider delayDuration={100} key={index}>
               <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link href={link.href} target="_blank" rel="noreferrer">
-                    <div
-                      className={buttonVariants({
-                        size: "sm",
-                        variant: "icon",
-                      })}
-                    >
+                <TooltipTrigger onMouseDown={e=>e.preventDefault()} asChild>
+                  <Button variant="icon" asChild>
+                    <Link href={link.href} target="_blank" rel="noreferrer">
                       <link.icon className="h-8 w-8 sm:h-5 sm:w-5 fill-current" />
                       <span className="sr-only">{link.title}</span>
-                    </div>
-                  </Link>
+                    </Link>
+                  </Button>
                 </TooltipTrigger>
-                <TooltipContent>
+                <TooltipContent aria-label={link.title}>
                   <p>{link.title}</p>
                 </TooltipContent>
               </Tooltip>
@@ -45,50 +41,6 @@ const SocialLinks = ({classname}: SocialStylesProps) => {
         : null}
     </div>
   );
-  
-  // return (
-  //   <div className={classname}>
-  //     <TooltipProvider>
-  //       <Tooltip>
-  //         <TooltipTrigger asChild>
-  //           <Link
-  //             href={siteConfig.socialLinks.linkedIn}
-  //             target="_blank"
-  //             rel="noreferrer"
-  //           >
-  //             <div
-  //               className={buttonVariants({
-  //                 size: "sm",
-  //                 variant: "icon",
-  //               })}
-  //             >
-  //               <Icons.linkedIn className="h-8 w-8 sm:h-5 sm:w-5 fill-current" />
-  //               <span className="sr-only">LinkedIn</span>
-  //             </div>
-  //           </Link>
-  //         </TooltipTrigger>
-  //         <TooltipContent>
-  //           <p>LinkedIn</p>
-  //         </TooltipContent>
-  //       </Tooltip>
-  //   </TooltipProvider>
-  //     <Link
-  //       href={siteConfig.socialLinks.gitHub}
-  //       target="_blank"
-  //       rel="noreferrer"
-  //     >
-  //       <div
-  //         className={buttonVariants({
-  //           size: "sm",
-  //           variant: "icon",
-  //         })}
-  //       >
-  //         <Icons.gitHub className="h-8 w-8 sm:h-5 sm:w-5" />
-  //         <span className="sr-only">GitHub</span>
-  //       </div>
-  //     </Link>
-  //   </div>
-  // );
 };
 
 export default SocialLinks;
