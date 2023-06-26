@@ -4,6 +4,7 @@ import { fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import NavBar from '@/components/layout/NavBar';
+import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
   title: 'Ben Mendis',
@@ -28,6 +29,7 @@ export default function RootLayout({children}: RootLayoutProps) {
             <NavBar />
             <section className="container flex-1">
               {children}
+              <Toaster />
             </section>
           </main>
         </ThemeProvider>
