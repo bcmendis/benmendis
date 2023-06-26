@@ -1,3 +1,5 @@
+import { Icons } from "@/components/layout/icons";
+
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
@@ -21,8 +23,17 @@ export const siteConfig = {
       href: "/contact",
     },
   ],
-  socialLinks: {
-    linkedIn: "https://www.linkedin.com/in/ben-mendis",
-    gitHub: "https://github.com/bcmendis",
-  },
 };
+
+export const Links = [
+  {
+    title: "LinkedIn",
+    href: "https://www.linkedin.com/in/ben-mendis",
+    icon: Icons.linkedIn,
+  },
+  {
+    title: "GitHub",
+    href: "https://github.com/bcmendis",
+    icon: Icons.gitHub,
+  },
+];
