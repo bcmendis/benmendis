@@ -19,7 +19,7 @@ const SocialLinks = ({classname}: SocialStylesProps) => {
         <div
           className={buttonVariants({
             size: "sm",
-            variant: "ghost",
+            variant: "icon",
           })}
         >
           <Icons.linkedIn className="h-8 w-8 sm:h-5 sm:w-5 fill-current" />
@@ -34,7 +34,7 @@ const SocialLinks = ({classname}: SocialStylesProps) => {
         <div
           className={buttonVariants({
             size: "sm",
-            variant: "ghost",
+            variant: "icon",
           })}
         >
           <Icons.gitHub className="h-8 w-8 sm:h-5 sm:w-5" />

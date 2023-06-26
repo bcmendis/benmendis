@@ -27,15 +27,33 @@ export function ThemeToggleMobile() {
   const { setTheme, theme } = useTheme();
 
   return (
-    <form className="flex px-6 justify-between items-center text-muted-foreground">
-      <Icons.moon className={`h-8 w-8 ${theme === "dark" ? "text-accent-foreground" : "text-muted-foreground"}`}/>
-      <Switch
-        id="darkMode"
-        aria-label="darkMode"
-        onCheckedChange={() => setTheme(theme === "light" ? "dark" : "light")}
-        checked={theme === "dark"}
-        className="text-accent-foreground"
-      />
+    <form className="container grid grid-cols-2 justify-evenly items-center text-muted-foreground">
+      <div className="flex flex-1 justify-center">
+        {theme === "dark" ? (
+          <Icons.moon
+            className={`h-8 w-8 ${
+              theme === "dark" ? "text-accent" : "text-muted-foreground"
+            }`}
+          />
+        ) : (
+          <Icons.sun
+            className={`h-8 w-8 ${
+              theme === "dark" ? "text-accent" : "text-muted-foreground"
+            }`}
+          />
+        )}
+      </div>
+
+      <div className="flex justify-end">
+        <Switch
+          id="darkMode"
+          aria-label="darkMode"
+          role="switch"
+          onCheckedChange={() => setTheme(theme === "light" ? "dark" : "light")}
+          checked={theme === "dark"}
+          className="data-[state=checked]:bg-accent-foreground"
+        />
+      </div>
     </form>
   );
 }

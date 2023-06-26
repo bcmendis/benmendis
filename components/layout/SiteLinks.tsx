@@ -65,10 +65,10 @@ export const SiteLinksMobile = ({items} : NavItemProps) => {
     <div className="sm:hidden">
       <Sheet>
         <SheetTrigger className="flex justify-center items-center">
-          <Icons.mobileMenuOpen />
+          <Icons.mobileMenuOpen className="h-8 w-8"/>
         </SheetTrigger>
-        <SheetContent className="flex h-full">
-            <div className="flex justify-end px-6">
+        <SheetContent side="mobile" className="flex h-full">
+            <div className="container flex justify-end">
           <SheetClose asChild>
               <Icons.mobileMenuClose className="h-8 w-8 text-muted-foreground" />
           </SheetClose>
@@ -99,7 +99,7 @@ export const SiteLinksMobile = ({items} : NavItemProps) => {
               </nav>
             ) : null}
           </div>
-          <SocialLinks classname="flex px-6 h-15 w-full justify-between items-center text-muted-foreground" />
+          <SocialLinks classname="flex px-6 max-h-10 w-full justify-end items-center text-muted-foreground overflow-hidden" />
           <Separator className="text-muted-foreground" />
           <ThemeToggleMobile />
         </SheetContent>
