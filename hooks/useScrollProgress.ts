@@ -4,12 +4,7 @@ import { useEffect, useState } from "react";
 
 
 const useScrollProgress= () => {
-  //To fix, refreshing the page after scrolling
-  const initialY = window.scrollY;
-  const initialHeight = document.body.scrollHeight - window.innerHeight;
-  const initialState = Number((initialY / initialHeight).toFixed(2)) * 100;
-
-  const [completion, setCompletion] = useState(initialState);
+  const [completion, setCompletion] = useState(0);
 
   useEffect(()=>{
     const updateScrollCompletion = () => {
@@ -18,9 +13,12 @@ const useScrollProgress= () => {
       if (scrollHeight) {
         setCompletion(Number((currentProgress / scrollHeight).toFixed(2))*100)
       } else setCompletion(0);
-      console.log("currentProgress: ", currentProgress, "ScrollHeight: ", scrollHeight);
     }
     
+    /* To update scroll value on component mount
+    updates to correct value,
+    even after user has scrolled and then reloads the page */
+    updateScrollCompletion();
     window.addEventListener("scroll", updateScrollCompletion);
 
     return (() => {

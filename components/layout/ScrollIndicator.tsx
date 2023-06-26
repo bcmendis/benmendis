@@ -1,6 +1,7 @@
 "use client"
 import useScrollProgress from "@/hooks/useScrollProgress";
 
+
 const ScrollIndicator = () => {
     const completion = useScrollProgress();
   return (
