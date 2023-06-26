@@ -1,10 +1,15 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+
 
 const useScrollProgress= () => {
-  const [completion, setCompletion] = useState(0);
+  //To fix, refreshing the page after scrolling
+  const initialY = window.scrollY;
+  const initialHeight = document.body.scrollHeight - window.innerHeight;
+  const initialState = Number((initialY / initialHeight).toFixed(2)) * 100;
+
+  const [completion, setCompletion] = useState(initialState);
 
   useEffect(()=>{
     const updateScrollCompletion = () => {
@@ -13,8 +18,9 @@ const useScrollProgress= () => {
       if (scrollHeight) {
         setCompletion(Number((currentProgress / scrollHeight).toFixed(2))*100)
       } else setCompletion(0);
+      console.log("currentProgress: ", currentProgress, "ScrollHeight: ", scrollHeight);
     }
-
+    
     window.addEventListener("scroll", updateScrollCompletion);
 
     return (() => {

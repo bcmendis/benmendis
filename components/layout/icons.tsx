@@ -6,6 +6,7 @@ import {
   LucideProps,
   PanelRightOpen,
   PanelRightClose,
+  ArrowUpCircle,
   type Icon as LucideIcon,
 } from "lucide-react"
 
@@ -26,4 +27,5 @@ export const Icons = {
   ),
   mobileMenuOpen: PanelRightOpen,
   mobileMenuClose: PanelRightClose,
+  upArrow: ArrowUpCircle,
 }

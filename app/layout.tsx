@@ -24,9 +24,9 @@ export default function RootLayout({children}: RootLayoutProps) {
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main className="flex flex-col justify-start items-center min-h-screen">
+          <main className="flex-col justify-start items-center min-h-screen">
             <NavBar />
-            <section className="flex flex-col flex-1 w-[90%] sm:w-[70%] items-center justify-between py-10 sm:py-24">
+            <section className="container flex-1">
               {children}
             </section>
           </main>
