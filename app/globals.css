@@ -1,6 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-lg sm:text-2xl font-bold
+  }
+}
+
  
 @layer base {
   :root {

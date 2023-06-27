@@ -6,29 +6,15 @@ import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import { Icons } from "@/components/layout/icons"
 import { Switch } from "../ui/switch"
-import { useToast } from "../ui/use-toast"
 
 export function ThemeToggle() {
-  const { setTheme, theme } = useTheme();
-  const { toast } = useToast();
+  const { setTheme, theme } = useTheme()
 
   return (
     <Button
       variant="ghost"
       size="sm"
-      onClick={() => {
-        if (theme === "light") {
-          setTheme("dark");
-          toast({
-            title: "Dark Mode enabled"
-          })
-        } else {
-          setTheme("light");
-          toast({
-            title: "Light Mode enabled",
-          });
-        }
-      }}
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       <Icons.sun className="text-muted-foreground rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
       <Icons.moon className="text-muted-foreground absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
