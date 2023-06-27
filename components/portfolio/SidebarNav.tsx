@@ -31,7 +31,7 @@ const SidebarNav = ({ className, items, ...props }: SidbarNavProps) => {
             path === item.href
               ? "bg-accent hover:bg-muted"
               : "hover:bg-transparent hover:underline hover:text-accent",
-            "justify-start"
+            "sm:justify-start"
           )}
         >
           {item.title}

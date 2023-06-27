@@ -25,9 +25,9 @@ export default function RootLayout({children}: RootLayoutProps) {
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main className="flex-col justify-start items-center min-h-screen">
+          <main className="min-h-screen">
             <NavBar />
-            <section className="container flex-col flex-1 py-6">
+            <section className="container py-6">
               {children}
               <Toaster />
             </section>
