@@ -48,10 +48,8 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-3 text-lg">
               <p className="text-xl text-accent-foreground">
-                {" "}
                 Welcome to my professional website
               </p>
-              {/* <p>{`Want to see what I've done?`}</p> */}
             </div>
             <div className="flex gap-3 mt-1 text-xl">
               <Button variant="secondary" className="">
@@ -62,14 +60,24 @@ export default function Home() {
           </div>
           <div className="relative flex-1 aspect-square min-w-[50px] max-w-[250px]">
             <Image
-              src="/assets/home/profile.png"
+              src="/assets/home/profile-dark2.png"
               alt="Profile Photo"
               fill
               priority
               sizes="(max-width: 768px) 100vw,
                 (max-width: 1200px) 50vw,
                 33vw"
-              className="rounded-full border-4 border-accent"
+              className="hidden dark:block rounded-full border-4 border-accent"
+            />
+            <Image
+              src="/assets/home/profile-light.png"
+              alt="Profile Photo"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
+              className="block dark:hidden rounded-full border-4 border-accent"
             />
           </div>
         </CardContent>
