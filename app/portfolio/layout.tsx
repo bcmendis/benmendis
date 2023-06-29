@@ -42,7 +42,7 @@ const PorfolioLayout = ({ children }: PorfolioLayoutProps) => {
           <aside className="sm:self-start sticky mx-0 lg:-mx-4 w-full lg:w-1/5 py-4 sm:py-6 top-16 sm:top-16 lg:top-20 bg-background">
             <SidebarNav items={sidebarNavItems}/>
           </aside>
-          <div className="flex-1 lg:max-w-2xl">{children}</div>
+          <div className="flex-1 lg:max-w-4xl">{children}</div>
         </div>
       </div>
     </>

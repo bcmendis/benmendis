@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-import Typewriter from "../Typewriter";
+import Typewriter from "../utils/Typewriter";
 
 
 const typingData = [
@@ -15,7 +15,7 @@ const typingData = [
         "Software",
         300,
         "Fullstack",
-        1000,
+        500,
         "Mechatronics Engineer.",
         3000,
       ];
