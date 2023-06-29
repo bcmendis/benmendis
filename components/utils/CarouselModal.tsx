@@ -25,6 +25,7 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
     const handleResize = () => {
       setAspectRatio(window.innerWidth / window.innerHeight);
     }
+    handleResize();
     window.addEventListener("resize", handleResize);
   }, []);
   console.log(aspectRatio);
