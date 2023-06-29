@@ -1,19 +1,30 @@
 "use client";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { DialogClose } from "@radix-ui/react-dialog";
+import { X } from "lucide-react";
+import { motion as m} from "framer-motion";
 
-import { stableDiffusionImages } from "@/lib/images";
-import Image from "next/image";
-import { motion as m, AnimatePresence } from "framer-motion";
+import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 
+//fix mobile browser x, hidden
+//try to fix spacing on reorientation for mobile devices
+//remove border from main overlay
+//overlay overflow-hidden may not be required
+//move to portfolio page when all bugs are fixed
 
-const Carousel = () => {
+interface CarouselProps {
+  data: StaticImageData[];
+  initial?: number
+}
 
+const CarouselModal = ({data, initial}:CarouselProps) => {
+  
   const windowWidth = window.innerWidth;
   const windowHeight = window.innerHeight;
   const aspectRatio = windowHeight / windowWidth;
 
-  const data = stableDiffusionImages;
-  const [position, setPosition] = useState(0);
+  const [position, setPosition] = useState(initial || 0);
 
   const onRight = () => {
     if (position < data.length -1) setPosition(position => position + 1);
@@ -25,7 +36,9 @@ const Carousel = () => {
   console.log(aspectRatio);
 
   return (
-    <>
+    <Dialog>
+        <DialogTrigger>Open</DialogTrigger>
+        <DialogContent className="flex justify-center items-center w-screen h-none max-w-none bg-none border-none p-0 m-0">
       <div className="relative">
         {data
           ? data.map((image, index) => {
@@ -65,8 +78,15 @@ const Carousel = () => {
           Next
         </button>
       </div>
-    </>
+      <div className="relative">
+            <DialogClose className="absolute right-[-45vw] top-[-40vh] rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+              <X className="h-4 w-4" />
+              <span className="sr-only">Close</span>
+            </DialogClose>
+          </div>
+        </DialogContent>
+      </Dialog>
   );
 };
 
-export default Carousel;
+export default CarouselModal;
