@@ -5,12 +5,9 @@ import { X } from "lucide-react";
 import { motion as m} from "framer-motion";
 
 import Image, { StaticImageData } from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 
-//fix mobile browser x, hidden
 //try to fix spacing on reorientation for mobile devices
-//remove border from main overlay
-//overlay overflow-hidden may not be required
 //move to portfolio page when all bugs are fixed
 
 interface CarouselProps {
@@ -20,11 +17,18 @@ interface CarouselProps {
 
 const CarouselModal = ({data, initial}:CarouselProps) => {
   
-  const windowWidth = window.innerWidth;
-  const windowHeight = window.innerHeight;
-  const aspectRatio = windowHeight / windowWidth;
-
   const [position, setPosition] = useState(initial || 0);
+  const [aspectRatio, setAspectRatio] = useState(0);
+
+  
+  useEffect(()=>{
+    const handleResize = () => {
+      setAspectRatio(window.innerWidth / window.innerHeight);
+    }
+    window.addEventListener("resize", handleResize);
+  }, []);
+  console.log(aspectRatio);
+
 
   const onRight = () => {
     if (position < data.length -1) setPosition(position => position + 1);
@@ -33,7 +37,6 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
     if (position > 0) setPosition(position => position - 1);
   };
 
-  console.log(aspectRatio);
 
   return (
     <Dialog>
@@ -50,7 +53,7 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
                     opacity: index === position ? 1 : 0.2,
                     scale: index === position ? 1 : 0.8,
                     left:
-                      aspectRatio < 1.5
+                      aspectRatio > 1
                         ? `${(index - position) * 40 - 20}vw`
                         : `${(index - position) * 70 - 35}vw`,
                   }}
