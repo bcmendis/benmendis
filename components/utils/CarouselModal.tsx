@@ -1,5 +1,5 @@
 "use client";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { DialogContent } from "@/components/ui/dialog";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import { motion as m} from "framer-motion";
@@ -7,7 +7,6 @@ import { motion as m} from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import { useState, useEffect, useCallback } from "react";
 
-//try to fix spacing on reorientation for mobile devices
 //move to portfolio page when all bugs are fixed
 
 interface CarouselProps {
@@ -28,7 +27,6 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
     handleResize();
     window.addEventListener("resize", handleResize);
   }, []);
-  console.log(aspectRatio);
 
 
   const onRight = () => {
@@ -40,8 +38,6 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
 
 
   return (
-    <Dialog>
-        <DialogTrigger>Open</DialogTrigger>
         <DialogContent className="flex justify-center items-center w-screen h-none max-w-none bg-none border-none p-0 m-0">
       <div className="relative">
         {data
@@ -63,7 +59,11 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
                     stiffness: 260,
                     damping: 20,
                   }}
-                  className={`absolute top-[-35vw] w-[70vw] sm:w-[40vw] sm:top-[-20vw] aspect-square overflow-hidden rounded-xl`}
+                  className={`absolute ${
+                    aspectRatio > 1
+                      ? "w-[40vw] top-[-20vw]"
+                      : "top-[-35vw] w-[70vw]"
+                  } aspect-square overflow-hidden rounded-xl`}
                 >
                   <Image
                     src={image}
@@ -89,7 +89,6 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
             </DialogClose>
           </div>
         </DialogContent>
-      </Dialog>
   );
 };
 

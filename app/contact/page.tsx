@@ -1,13 +1,15 @@
-
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import CarouselModal from "@/components/utils/CarouselModal";
-import React from "react";
 
 import { stableDiffusionImages } from "@/lib/images";
 
 const Contact = () => {
   return (
     <div>
-      <CarouselModal data={stableDiffusionImages} initial={3}/>
+      <Dialog>
+        <DialogTrigger>Open</DialogTrigger>
+        <CarouselModal data={stableDiffusionImages} initial={3} />
+      </Dialog>
     </div>
   );
 };
