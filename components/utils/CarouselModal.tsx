@@ -45,7 +45,7 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
 
 
   return (
-        <DialogContent className="flex justify-center items-center w-screen h-none max-w-none bg-none border-none p-0 m-0">
+        <DialogContent className="flex justify-center items-center w-screen h-[40vw] max-w-none bg-none border-4 p-0 m-0">
       <div className="relative">
         {data
           ? data.map((image, index) => {
@@ -56,6 +56,7 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
                   animate={{
                     opacity: index === position ? 1 : 0.2,
                     scale: index === position ? 1 : 0.8,
+                    zIndex: index === position ? 1 : 0,
                     left:
                       aspectRatio > 1
                         ? `${(index - position) * 40 - 20}vw`
@@ -69,7 +70,7 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
                   }}
                   drag="x"
                   dragConstraints={{left:0, right:0}}
-                  dragElastic={1}
+                  dragElastic={position === index ? 1 : 0}
                   onDragEnd={(e, {offset, velocity})=>{
                     e.stopPropagation();
                     const swipe = swipePower(offset.x, velocity.x);
@@ -78,11 +79,11 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
                     else if (swipe > swipeConfidenceThreshold) onLeft();
 
                   }}
-                  className={`absolute z-10 ${
+                  className={`absolute ${
                     aspectRatio > 1
                       ? "w-[40vw] top-[-20vw]"
                       : "top-[-35vw] w-[70vw]"
-                  } aspect-square overflow-hidden rounded-xl`}
+                  } aspect-square overflow-hidden rounded-xl cursor-grab`}
                 >
                   <Image
                     src={image}
@@ -94,7 +95,7 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
               );
             })
           : null}
-        <button className="absolute top-[50%] left-[-45vw]" onClick={onLeft}>
+        <button className="absolute top-[50%] left-[-45vw] border-2 border-red-500" onClick={onLeft}>
           Prev
         </button>
         <button className="absolute top-[50%] right-[-45vw]" onClick={onRight}>
