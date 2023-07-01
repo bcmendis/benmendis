@@ -5,14 +5,17 @@ import { X } from "lucide-react";
 import { motion as m} from "framer-motion";
 
 import Image, { StaticImageData } from "next/image";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
+//block drag on items behind
 //move to portfolio page when all bugs are fixed
 
 interface CarouselProps {
   data: StaticImageData[];
   initial?: number
 }
+
+const swipeConfidenceThreshold = 10000;
 
 const CarouselModal = ({data, initial}:CarouselProps) => {
   
@@ -34,6 +37,10 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
   }
   const onLeft = () => {
     if (position > 0) setPosition(position => position - 1);
+  };
+
+  const swipePower = (offset: number, velocity: number) => {
+    return Math.abs(offset) * velocity;
   };
 
 
@@ -58,8 +65,20 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
                     type: "spring",
                     stiffness: 260,
                     damping: 20,
+
                   }}
-                  className={`absolute ${
+                  drag="x"
+                  dragConstraints={{left:0, right:0}}
+                  dragElastic={1}
+                  onDragEnd={(e, {offset, velocity})=>{
+                    e.stopPropagation();
+                    const swipe = swipePower(offset.x, velocity.x);
+
+                    if (swipe < -swipeConfidenceThreshold) onRight();
+                    else if (swipe > swipeConfidenceThreshold) onLeft();
+
+                  }}
+                  className={`absolute z-10 ${
                     aspectRatio > 1
                       ? "w-[40vw] top-[-20vw]"
                       : "top-[-35vw] w-[70vw]"
@@ -69,7 +88,7 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
                     src={image}
                     alt=""
                     fill
-                    className="h-full w-full aspect-square"
+                    className="h-full w-full pointer-events-none"
                   />
                 </m.div>
               );
