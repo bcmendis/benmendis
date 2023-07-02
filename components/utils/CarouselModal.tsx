@@ -1,13 +1,14 @@
 "use client";
 import { DialogContent } from "@/components/ui/dialog";
 import { DialogClose } from "@radix-ui/react-dialog";
-import { X } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion as m} from "framer-motion";
 
 import Image, { StaticImageData } from "next/image";
 import { useState, useEffect } from "react";
 
-//block drag on items behind
+//add sizes to other images
+//add priority to image in focus
 //move to portfolio page when all bugs are fixed
 
 interface CarouselProps {
@@ -45,7 +46,7 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
 
 
   return (
-        <DialogContent className="flex justify-center items-center w-screen h-[40vw] max-w-none bg-none border-4 p-0 m-0">
+    <DialogContent className="flex justify-center items-center w-screen h-[40vw] bg-none border-none p-0 m-0">
       <div className="relative">
         {data
           ? data.map((image, index) => {
@@ -60,24 +61,23 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
                     left:
                       aspectRatio > 1
                         ? `${(index - position) * 40 - 20}vw`
-                        : `${(index - position) * 70 - 35}vw`,
+                        : `${(index - position) * 70 - 30}vw`,
                   }}
                   transition={{
                     type: "spring",
                     stiffness: 260,
                     damping: 20,
-
                   }}
                   drag="x"
-                  dragConstraints={{left:0, right:0}}
+                  dragConstraints={{ left: 0, right: 0 }}
                   dragElastic={position === index ? 1 : 0}
-                  onDragEnd={(e, {offset, velocity})=>{
+                  dragSnapToOrigin={true}
+                  onDragEnd={(e, { offset, velocity }) => {
                     e.stopPropagation();
                     const swipe = swipePower(offset.x, velocity.x);
 
                     if (swipe < -swipeConfidenceThreshold) onRight();
                     else if (swipe > swipeConfidenceThreshold) onLeft();
-
                   }}
                   className={`absolute ${
                     aspectRatio > 1
@@ -89,26 +89,37 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
                     src={image}
                     alt=""
                     fill
-                    className="h-full w-full pointer-events-none"
+                    loading={index===position ? "eager" : "lazy"}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={index === position ? true : false}
+                    className="h-full w-full pointer-events-none object-cover"
                   />
                 </m.div>
               );
             })
           : null}
-        <button className="absolute top-[50%] left-[-45vw] border-2 border-red-500" onClick={onLeft}>
-          Prev
+      </div>
+      <div className="relative">
+        <button
+          className="box-border z-[2] m-0 absolute translate-y-[-50%] left-[-50vw] py-10 pr-10 text-accent-foreground"
+          onClick={onLeft}
+        >
+          <ChevronLeft className="h-10 w-10  sm:h-20 sm:w-20" />
         </button>
-        <button className="absolute top-[50%] right-[-45vw]" onClick={onRight}>
-          Next
+        <button
+          className="box-border z-[2] m-0 absolute translate-y-[-50%] right-[-50vw] py-10 pl-10 text-accent-foreground"
+          onClick={onRight}
+        >
+          <ChevronRight className="h-10 w-10 sm:h-20 sm:w-20" />
         </button>
       </div>
       <div className="relative">
-            <DialogClose className="absolute right-[-45vw] top-[-40vh] rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-              <X className="h-4 w-4" />
-              <span className="sr-only">Close</span>
-            </DialogClose>
-          </div>
-        </DialogContent>
+        <DialogClose className="absolute right-[-40vw] top-[-40vh] rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+          <X className="h-4 w-4" />
+          <span className="sr-only">Close</span>
+        </DialogClose>
+      </div>
+    </DialogContent>
   );
 };
 
