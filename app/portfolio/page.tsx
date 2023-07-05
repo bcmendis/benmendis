@@ -1,6 +1,6 @@
 import React from "react";
 
-const Portfolio = () => {
+const PortfolioPage = () => {
   return <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet pariatur deserunt impedit nisi veniam itaque reprehenderit voluptatem hic repellat, molestiae inventore delectus mollitia, dignissimos, natus non maiores omnis debitis aperiam?
   Temporibus accusamus laboriosam pariatur quo saepe, eos praesentium aperiam delectus facere aspernatur veritatis! Aspernatur, saepe. Ipsam saepe alias error repudiandae debitis vitae laudantium sunt similique, possimus odio deserunt aperiam facere.
   Et, ipsam deserunt? Quasi perferendis commodi quos tempora quis fugit nobis. Voluptatibus illo aspernatur iste rem reiciendis placeat obcaecati incidunt sapiente dolorem earum error id, voluptate atque, quam quas. Esse.
@@ -103,4 +103,4 @@ const Portfolio = () => {
   Quidem amet a sunt asperiores esse doloremque odit expedita, fugiat minima optio? Dignissimos, error officiis ducimus et, itaque soluta maxime dolorum porro eligendi aut aperiam excepturi esse. Facere, perspiciatis aut?</div>;
 };
 
-export default Portfolio;
+export default PortfolioPage;

@@ -13,14 +13,14 @@ import { useState, useEffect } from "react";
 
 interface CarouselProps {
   data: StaticImageData[];
-  initial?: number
+  initial: number
 }
 
 const swipeConfidenceThreshold = 10000;
 
 const CarouselModal = ({data, initial}:CarouselProps) => {
   
-  const [position, setPosition] = useState(initial || 0);
+  const [position, setPosition] = useState(initial);
   const [aspectRatio, setAspectRatio] = useState(0);
 
   
@@ -30,7 +30,10 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
     }
     handleResize();
     window.addEventListener("resize", handleResize);
-  }, []);
+    return ()=> {
+      window.removeEventListener("resize", handleResize)}
+
+  }, [initial]);
 
 
   const onRight = () => {
@@ -46,7 +49,7 @@ const CarouselModal = ({data, initial}:CarouselProps) => {
 
 
   return (
-    <DialogContent className="flex justify-center items-center w-screen h-[40vw] bg-none border-none p-0 m-0">
+    <DialogContent className="flex justify-center items-center w-[screen] h-[80vw] sm:h-[50vw] bg-none border-none p-0 m-0">
       <div className="relative">
         {data
           ? data.map((image, index) => {
