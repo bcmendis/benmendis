@@ -8,10 +8,15 @@ import { SiteLinks, SiteLinksMobile } from "./SiteLinks";
 import SocialLinks from "./SocialLinks";
 import ScrollIndicator from "./ScrollIndicator";
 import { buttonVariants } from "../ui/button";
+import { getAuthSession } from "@/lib/auth";
+import UserAccountNav from "../auth/UserAccountNav";
 
-const items : NavItem[] = siteConfig.siteLinks;
+const items: NavItem[] = siteConfig.siteLinks;
 
-const NavBar = () => {
+const NavBar = async () => {
+  const session = await getAuthSession();
+  console.log(session);
+
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
       <div className="container flex h-16 justify-between items-center md:gap-10">
@@ -24,7 +29,13 @@ const NavBar = () => {
           <nav className="hidden sm:flex items-center space-x-3">
             {/* <SocialLinks /> */}
             <ThemeToggle />
-            <Link href='/sign-in' className={buttonVariants()}>Sign In</Link>
+            {session?.user ? (
+              <UserAccountNav user={session.user} />
+            ) : (
+              <Link href="/sign-in" className={buttonVariants()}>
+                Sign In
+              </Link>
+            )}
           </nav>
         </div>
         <SiteLinksMobile items={items} />

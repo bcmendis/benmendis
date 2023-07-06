@@ -9,6 +9,7 @@ import {
   ArrowUpCircle,
   ChevronLeft,
   ChevronRight,
+  User,
   type Icon as LucideIcon,
 } from "lucide-react"
 
@@ -23,6 +24,7 @@ export const Icons = {
   upArrow: ArrowUpCircle,
   leftChevron: ChevronLeft,
   rightChevron: ChevronRight,
+  user: User,
   linkedIn: Linkedin,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
