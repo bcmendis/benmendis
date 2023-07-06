@@ -7,6 +7,7 @@ import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { SiteLinks, SiteLinksMobile } from "./SiteLinks";
 import SocialLinks from "./SocialLinks";
 import ScrollIndicator from "./ScrollIndicator";
+import { buttonVariants } from "../ui/button";
 
 const items : NavItem[] = siteConfig.siteLinks;
 
@@ -20,9 +21,10 @@ const NavBar = () => {
         </Link>
         <SiteLinks items={items} />
         <div>
-          <nav className="hidden sm:flex items-center space-x-1">
-            <SocialLinks />
+          <nav className="hidden sm:flex items-center space-x-3">
+            {/* <SocialLinks /> */}
             <ThemeToggle />
+            <Link href='/sign-in' className={buttonVariants()}>Sign In</Link>
           </nav>
         </div>
         <SiteLinksMobile items={items} />

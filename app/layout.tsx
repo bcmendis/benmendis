@@ -25,12 +25,12 @@ export default function RootLayout({children}: RootLayoutProps) {
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main className="min-h-screen">
+          <main className="min-h-screen antialiased">
             <NavBar />
             <section className="container py-6">
               {children}
-              <Toaster />
             </section>
+              <Toaster />
           </main>
         </ThemeProvider>
       </body>

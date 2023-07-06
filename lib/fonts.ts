@@ -11,8 +11,9 @@ export const fontMono = FontMono({
 })
 
 
-//check how this works
+//fontCode.className works
+//how does fontSans.variable works, but not fontCode.variable?
 export const fontCode = FontCode({
+  weight: '300',
   subsets: ["latin"],
-  variable: "--font-code",
 });

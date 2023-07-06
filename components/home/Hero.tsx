@@ -7,6 +7,8 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import Typewriter from "../utils/Typewriter";
+import { cn } from "@/lib/utils";
+import { fontCode, fontMono } from "@/lib/fonts";
 
 
 const typingData = [
@@ -34,7 +36,12 @@ const Hero = () => {
               <h2 className="sm:ml-6 text-4xl font-semibold text-muted-foreground">{`I'm Ben`}</h2>
             </span>
           </div>
-          <span className="text-xl sm:text-3xl text-muted-foreground text-center sm:text-left">
+          <span
+            className={cn(
+              "text-xl sm:text-3xl text-muted-foreground text-center sm:text-left",
+              fontCode.className
+            )}
+          >
             {`A `}
             <Typewriter data={typingData} />
           </span>
@@ -43,12 +50,18 @@ const Hero = () => {
               Welcome to my professional website
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mt-1">
-              <Button variant="secondary" size="lg" asChild>
-                <Link href="/portfolio">Portfolio</Link>
-              </Button>
-              <Button variant="ghost" size="lg" asChild>
-                <Link href="/contact">Contact</Link>
-              </Button>
+              <Link
+                href="/portfolio"
+                className={buttonVariants({ variant: "secondary", size: "lg" })}
+              >
+                Portfolio
+              </Link>
+              <Link
+                href="/contact"
+                className={buttonVariants({ variant: "ghost", size: "lg" })}
+              >
+                Contact
+              </Link>
             </div>
           </div>
         </div>
