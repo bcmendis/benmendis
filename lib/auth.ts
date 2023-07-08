@@ -19,10 +19,10 @@ function getGoogleCredentials() {
   return {clientId, clientSecret}
 }
 
-const prisma = new PrismaClient();
+// const prisma = new PrismaClient();
 
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
+  adapter: PrismaAdapter(db),
   session: {
     strategy: "jwt"
   },
@@ -37,7 +37,6 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async session({token, session}){
-      console.log('token: ', token)
       if (token) {
         session.user.id = token.id;
         session.user.name = token.name;

@@ -15,7 +15,6 @@ const items: NavItem[] = siteConfig.siteLinks;
 
 const NavBar = async () => {
   const session = await getAuthSession();
-  console.log(session);
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
