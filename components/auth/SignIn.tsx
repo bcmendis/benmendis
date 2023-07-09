@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Icons } from '../layout/icons'
 import UserAuthForm from './UserAuthForm';
-import loginImage from '@/public/assets/auth/SignInImage.svg'
+import loginImage from '../../public/assets/auth/SignInImage.svg'
 import Image from 'next/image';
 import { Separator } from '../ui/separator';
 import Link from 'next/link';
