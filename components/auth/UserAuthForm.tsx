@@ -29,7 +29,7 @@ const UserAuthForm: FC<UserAuthFormProps> = ({ className, ...props }) => {
   };
 
   return (
-    <div className={cn("flex justify-center w-full", className)} {...props}>
+    <div className={cn("flex justify-center items-center w-full", className)} {...props}>
       <Button
         size="sm"
         onClick={loginWithGoogle}

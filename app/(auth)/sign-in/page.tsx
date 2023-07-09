@@ -8,10 +8,16 @@ import { FC } from 'react'
 
 const SignInPage: FC = ({}) => {
   return (
-    <div className="absolute inset-0">
-      <div className="container h-full max-w-2xl mx-auto flex flex-col items-center justify-center gap-20">
-        <Link href="/" className={cn(buttonVariants({ variant: "ghost" }), 'self-start -mt-20')}>
-          <Icons.leftChevron className="h-6 w-6 mr-1"/>
+    <div className="flex justify-center items-center">
+      <div className="sm:container h-full sm:max-w-6xl mx-auto flex flex-col items-center justify-center gap-3">
+        <Link
+          href="/"
+          className={cn(
+            buttonVariants({ variant: "ghost" }),
+            "self-start -ml-5 sm:-ml-12"
+          )}
+        >
+          <Icons.leftChevron className="h-6 w-6 mr-1" />
           Back to Home
         </Link>
         <SignIn />
