@@ -35,10 +35,6 @@ const UserAccountNav: FC<UserAccountNavProps> = ({user}) => {
           </div>
         </div>
         <DropdownMenuSeparator />
-        <DropdownMenuItem asChild className="focus:text-primary">
-          <Link href="/">Github</Link>
-        </DropdownMenuItem>
-        <DropdownMenuSeparator />
         <DropdownMenuItem onSelect={(e)=>{
           e.preventDefault();
           signOut({callbackUrl: '/'});

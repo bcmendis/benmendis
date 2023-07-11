@@ -22,6 +22,10 @@ export const siteConfig = {
       title: "Contact",
       href: "/contact",
     },
+    {
+      title: "Admin",
+      href: "/admin",
+    },
   ],
 };
 

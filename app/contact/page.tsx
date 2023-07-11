@@ -1,5 +1,5 @@
 import { getAuthSession } from "@/lib/auth";
-import { db } from "@/lib/db";
+import { db } from "@/lib/prisma/db";
 
 const Contact = async () => {
   const users = await db.user.findMany();

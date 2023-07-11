@@ -13,7 +13,7 @@ const UserAvatar: FC<UserAvatarProps> = ({ user, ...props }) => {
   return (
     <Avatar {...props}>
       {user.image ? (
-        <div className="relative aspect-square h-full w-full">
+        <div className="relative aspect-square h-full w-full flex justify-center">
           <Image
             fill
             src={user.image}

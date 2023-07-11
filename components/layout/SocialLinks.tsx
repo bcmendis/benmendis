@@ -27,7 +27,7 @@ const SocialLinks = ({classname}: SocialStylesProps) => {
               <Tooltip>
                 <TooltipTrigger onMouseDown={e=>e.preventDefault()} asChild>
                     <Link href={link.href} target="_blank" rel="noreferrer" className={cn(buttonVariants({variant:'icon'}))}>
-                      <link.icon className="h-8 w-8 sm:h-5 sm:w-5 fill-current" />
+                      <link.icon className="h-8 w-8 md:h-5 md:w-5 fill-current" />
                       <span className="sr-only">{link.title}</span>
                     </Link>
                 </TooltipTrigger>

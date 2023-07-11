@@ -31,7 +31,7 @@ const SignIn: FC = ({}) => {
         href="https://storyset.com/user"
         className={cn(
           buttonVariants({ variant: "link", className: "p-1 text-xs" }),
-          "mt-0"
+          "mt-0 text-muted-foreground"
         )}
       >
         User Illustrations by Storyset

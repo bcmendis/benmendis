@@ -18,26 +18,24 @@ const NavBar = async () => {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <div className="container flex h-16 justify-between items-center md:gap-10">
+      <div className="container flex h-16 justify-between items-center md:gap-5">
         <Link href="/" className="flex items-center space-x-2">
           <Icons.logo className="h-6 w-6 text-accent-foreground" />
           <span className="inline-block font-bold">{siteConfig.name}</span>
         </Link>
-        <SiteLinks items={items} />
-        <div>
-          <nav className="hidden sm:flex items-center space-x-3">
-            {/* <SocialLinks /> */}
+        <SiteLinks items={items} session={session} />
+          <nav className="hidden md:flex items-center gap-x-2">
+            <SocialLinks />
             <ThemeToggle />
             {session?.user ? (
               <UserAccountNav user={session.user} />
             ) : (
-              <Link href="/sign-in" className={buttonVariants()}>
+              <Link href="/sign-in" className={buttonVariants({variant:"secondary"})}>
                 Sign In
               </Link>
             )}
           </nav>
-        </div>
-        <SiteLinksMobile items={items} />
+          <SiteLinksMobile items={items} session={session}/>
       </div>
       <ScrollIndicator />
     </header>

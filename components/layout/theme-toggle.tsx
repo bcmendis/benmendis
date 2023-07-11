@@ -16,8 +16,8 @@ export function ThemeToggle() {
       size="sm"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
-      <Icons.sun className="text-muted-foreground rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Icons.moon className="text-muted-foreground absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <Icons.sun className="h-8 w-8 sm:h-5 sm:w-5 text-muted-foreground rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+      <Icons.moon className="h-8 w-8 sm:h-5 sm:w-5 text-muted-foreground absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
       <span className="sr-only">Toggle theme</span>
     </Button>
   );
@@ -27,8 +27,8 @@ export function ThemeToggleMobile() {
   const { setTheme, theme } = useTheme();
 
   return (
-    <form className="container grid grid-cols-2 justify-evenly items-center text-muted-foreground">
-      <div className="flex flex-1 justify-center">
+    <form className="flex px-4 justify-end gap-x-6 items-center text-muted-foreground">
+      <div className="flex justify-center">
         {theme === "dark" ? (
           <Icons.moon
             className={`h-8 w-8 ${
