@@ -15,6 +15,7 @@ const UserAvatar: FC<UserAvatarProps> = ({ user, ...props }) => {
       {user.image ? (
         <div className="relative aspect-square h-full w-full flex justify-center">
           <Image
+            sizes="20vw"
             fill
             src={user.image}
             alt={`${user.name}`}
@@ -24,7 +25,7 @@ const UserAvatar: FC<UserAvatarProps> = ({ user, ...props }) => {
       ) : (
         <AvatarFallback>
           <span className="sr-only">{user?.name}</span>
-          <Icons.user/>
+          <Icons.user />
         </AvatarFallback>
       )}
     </Avatar>

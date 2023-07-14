@@ -31,7 +31,6 @@ interface NavItemProps {
 export const SiteLinks = ({items, session} : NavItemProps) => {
   
   const path = usePathname();
-  console.log(session?.user.role);
 
   return (
     <div className="hidden sm:block flex-1 items-center">
@@ -79,7 +78,7 @@ export const SiteLinksMobile = ({items, session} : NavItemProps) => {
               <Icons.mobileMenuClose className="h-8 w-8 text-muted-foreground" />
             </SheetClose>
           </div>
-          <div className="flex flex-1 justify-end px-6 mb-10">
+          <div className="flex flex-1 justify-end px-6 mb-4">
             {items?.length ? (
               <nav className="flex flex-col justify-end gap-2">
                 {items?.map(

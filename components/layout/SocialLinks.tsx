@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { Button, buttonVariants} from "@/components/ui/button";
+import { buttonVariants} from "@/components/ui/button";
 import { Links } from "@/config/site";
 
 import {
@@ -26,7 +26,7 @@ const SocialLinks = ({classname}: SocialStylesProps) => {
             <TooltipProvider delayDuration={100} key={index}>
               <Tooltip>
                 <TooltipTrigger onMouseDown={e=>e.preventDefault()} asChild>
-                    <Link href={link.href} target="_blank" rel="noreferrer" className={cn(buttonVariants({variant:'icon'}))}>
+                    <Link href={link.href} target="_blank" rel="noreferrer" className={cn(buttonVariants({variant:'icon'}), "px-2")}>
                       <link.icon className="h-8 w-8 md:h-5 md:w-5 fill-current" />
                       <span className="sr-only">{link.title}</span>
                     </Link>

@@ -12,7 +12,7 @@ const SignIn: FC = ({}) => {
   return (
     <div className="container mx-auto w-full flex flex-col justify-center items-center border rounded-lg p-0">
       <div className="grid grid-cols-1 sm:grid-cols-2 items-center px-4 pb-6 pt-0 sm:p-0">
-        <Image src={loginImage} alt="Sign in image"/>
+        <Image src={loginImage} alt="Sign in image" priority/>
         <div className="flex flex-col space-y-4 text-center items-center px-6">
           <div className="flex space-x-2 items-end justify-center text-accent-foreground">
             <Icons.logo className="mx-auto h-6 w-6" />

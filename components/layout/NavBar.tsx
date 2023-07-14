@@ -24,7 +24,7 @@ const NavBar = async () => {
           <span className="inline-block font-bold">{siteConfig.name}</span>
         </Link>
         <SiteLinks items={items} session={session} />
-          <nav className="hidden md:flex items-center gap-x-2">
+          <nav className="hidden md:flex items-center gap-x-3">
             <SocialLinks />
             <ThemeToggle />
             {session?.user ? (

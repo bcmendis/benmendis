@@ -18,7 +18,6 @@ function getGoogleCredentials() {
   return {clientId, clientSecret}
 }
 
-// const prisma = new PrismaClient();
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db),
