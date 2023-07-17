@@ -1,7 +1,34 @@
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/prisma/db";
 import { ReviewValidatator } from "@/lib/validators/review";
+import { NextResponse } from "next/server";
 import { z } from "zod";
+
+export async function GET() {
+  try{
+    const reviews = await db.review.findMany({
+      include: {
+        author: {
+          select: {
+            name: true,
+            email: true,
+            image: true,
+            role: true,
+          }
+
+        }
+      }
+    });
+    console.log(reviews)
+    if(!reviews) {
+      return new Response('There are no reviews yet.', { status: 204})
+    }
+    return NextResponse.json(reviews, { status: 200});
+  }
+  catch(error){
+    return new Response("Could not fetch reviews.", { status: 500 });
+  }
+}
 
 export async function POST(req: Request) {
   try {
@@ -31,7 +58,7 @@ export async function POST(req: Request) {
       }
     })
 
-    return new Response('Review successfully posted.', {status: 200})
+    return new Response('Review successfully posted.', {status: 201})
   }
   catch (error) {
     if(error instanceof z.ZodError) {
