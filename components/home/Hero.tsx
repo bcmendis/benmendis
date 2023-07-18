@@ -1,5 +1,5 @@
 
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Typewriter from "../utils/Typewriter";
 import { cn } from "@/lib/utils";
-import { fontCode, fontMono } from "@/lib/fonts";
+import { fontCode } from "@/lib/fonts";
 
 
 const typingData = [

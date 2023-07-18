@@ -10,7 +10,7 @@ import { Icons } from "../layout/icons";
 import { Avatar } from "../ui/avatar";
 import { cn } from "@/lib/utils";
 import { Input } from "../ui/input";
-import { useMutation } from "@tanstack/react-query";
+import { QueryClient, useMutation, useQueryClient } from "@tanstack/react-query";
 import axios, {AxiosError} from "axios";
 import { CreateReviewPayload } from "@/lib/validators/review";
 import { toast } from "@/hooks/use-toast";
@@ -25,6 +25,7 @@ const ReviewForm = ({session}:ReviewFormProps) => {
   const [review, setReview] = useState<string>("");
   const router = useRouter();
 
+  const QueryClient = useQueryClient();
   const {mutate : createReview, isLoading} = useMutation({
     mutationFn: async() => {
       const payload: CreateReviewPayload = {
@@ -67,7 +68,7 @@ const ReviewForm = ({session}:ReviewFormProps) => {
     },
     onSuccess: (data) => {
       setReview("");
-      router.refresh();
+      QueryClient.invalidateQueries({queryKey: ['reviews']});
       toast({
         title: "Yay!",
         description: data,

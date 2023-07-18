@@ -19,7 +19,6 @@ export async function GET() {
         }
       }
     });
-    console.log(reviews)
     if(!reviews) {
       return new Response('There are no reviews yet.', { status: 204})
     }
