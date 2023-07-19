@@ -16,10 +16,10 @@ const ReviewPost: FC<ReviewPostProps> = ({review}) => {
 
   return (
     <div className="flex flex-col justify-between items-center p-2 border border-muted rounded-lg h-full">
-      <div className="w-full mb-2 text-center p-3 text-xl">
+      <div className="w-full mb-2 text-center p-3 text-xl font-semibold">
         <span className="text-accent-foreground text-3xl">&quot; </span>
-        {review.content}
-        <span className="text-accent-foreground"> &quot;</span>
+        <span className="">{review.content}</span>
+        <span className="text-accent-foreground text-3xl"> &quot;</span>
       </div>
       <Separator />
       <div className="flex w-full items-center justify-between gap-3 p-1 text-sm flex-wrap">
@@ -40,7 +40,7 @@ const ReviewPost: FC<ReviewPostProps> = ({review}) => {
           dateTime={createdAt.toDateString()}
           className="text-muted-foreground"
         >
-          {format(createdAt, 'MMMM d, yyyy')}
+          {format(createdAt, "MMMM d, yyyy")}
         </time>
       </div>
     </div>
