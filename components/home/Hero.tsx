@@ -33,7 +33,7 @@ const Hero = () => {
               <h1 className="text-accent-foreground text-4xl sm:text-5xl">
                 Hi!
               </h1>
-              <h2 className="sm:ml-6 text-4xl font-semibold text-muted-foreground">{`I'm Ben`}</h2>
+              <h2 className="sm:ml-6 text-muted-foreground">{`I'm Ben`}</h2>
             </span>
           </div>
           <span

@@ -67,8 +67,8 @@ export const Icons = {
           y1="56.385%"
           y2="96.08%"
         >
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="logosNextjsIcon1"
@@ -77,8 +77,8 @@ export const Icons = {
           y1="0%"
           y2="73.438%"
         >
-          <stop offset="0%" stop-color="#FFF" />
-          <stop offset="100%" stop-color="#FFF" stop-opacity="0" />
+          <stop offset="0%" stopColor="#FFF" />
+          <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
         </linearGradient>
         <circle id="logosNextjsIcon2" cx="128" cy="128" r="128" />
       </defs>
@@ -191,6 +191,13 @@ export const Icons = {
       />
     </svg>
   ),
+  express: (props: LucideProps) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="-6 0 150 120">
+      <path 
+      fill="currentColor"
+      d="M126.67 98.44c-4.56 1.16-7.38.05-9.91-3.75c-5.68-8.51-11.95-16.63-18-24.9c-.78-1.07-1.59-2.12-2.6-3.45C89 76 81.85 85.2 75.14 94.77c-2.4 3.42-4.92 4.91-9.4 3.7l26.92-36.13L67.6 29.71c4.31-.84 7.29-.41 9.93 3.45c5.83 8.52 12.26 16.63 18.67 25.21c6.45-8.55 12.8-16.67 18.8-25.11c2.41-3.42 5-4.72 9.33-3.46c-3.28 4.35-6.49 8.63-9.72 12.88c-4.36 5.73-8.64 11.53-13.16 17.14c-1.61 2-1.35 3.3.09 5.19C109.9 76 118.16 87.1 126.67 98.44zM1.33 61.74c.72-3.61 1.2-7.29 2.2-10.83c6-21.43 30.6-30.34 47.5-17.06C60.93 41.64 63.39 52.62 62.9 65H7.1c-.84 22.21 15.15 35.62 35.53 28.78c7.15-2.4 11.36-8 13.47-15c1.07-3.51 2.84-4.06 6.14-3.06c-1.69 8.76-5.52 16.08-13.52 20.66c-12 6.86-29.13 4.64-38.14-4.89C5.26 85.89 3 78.92 2 71.39c-.15-1.2-.46-2.38-.7-3.57q.03-3.04.03-6.08zm5.87-1.49h50.43c-.33-16.06-10.33-27.47-24-27.57c-15-.12-25.78 11.02-26.43 27.57z" />
+    </svg>
+  ),
   nextAuth: (props: LucideProps) => (
     <svg
       {...props}
@@ -239,8 +246,8 @@ export const Icons = {
           y2="5.5493"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#19AAE8" />
-          <stop offset="1" stop-color="#1EA5F1" />
+          <stop stopColor="#19AAE8" />
+          <stop offset="1" stopColor="#1EA5F1" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_156_252"
@@ -250,8 +257,8 @@ export const Icons = {
           y2="9.66197"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#2BE2B8" />
-          <stop offset="1" stop-color="#19B9E3" />
+          <stop stopColor="#2BE2B8" />
+          <stop offset="1" stopColor="#19B9E3" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_156_252"
@@ -261,8 +268,8 @@ export const Icons = {
           y2="16.9859"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#925CDF" />
-          <stop offset="1" stop-color="#CC42E5" />
+          <stop stopColor="#925CDF" />
+          <stop offset="1" stopColor="#CC42E5" />
         </linearGradient>
       </defs>
     </svg>
@@ -303,15 +310,15 @@ export const Icons = {
           gradientTransform="matrix(-.977 -.323 -.29 .877 -375.944 -928.287)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".231" stop-color="#999875" />
-          <stop offset=".563" stop-color="#9b9977" />
-          <stop offset=".683" stop-color="#a09f7e" />
-          <stop offset=".768" stop-color="#a9a889" />
-          <stop offset=".837" stop-color="#b7b69a" />
-          <stop offset=".896" stop-color="#c9c7b0" />
-          <stop offset=".948" stop-color="#deddcb" />
-          <stop offset=".994" stop-color="#f8f6eb" />
-          <stop offset="1" stop-color="#fbf9ef" />
+          <stop offset=".231" stopColor="#999875" />
+          <stop offset=".563" stopColor="#9b9977" />
+          <stop offset=".683" stopColor="#a09f7e" />
+          <stop offset=".768" stopColor="#a9a889" />
+          <stop offset=".837" stopColor="#b7b69a" />
+          <stop offset=".896" stopColor="#c9c7b0" />
+          <stop offset=".948" stopColor="#deddcb" />
+          <stop offset=".994" stopColor="#f8f6eb" />
+          <stop offset="1" stopColor="#fbf9ef" />
         </linearGradient>
         <linearGradient
           id="vscodeIconsFileTypeMongo1"
@@ -322,8 +329,8 @@ export const Icons = {
           gradientTransform="matrix(-.977 -.323 -.29 .877 -375.944 -928.287)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#48a547" />
-          <stop offset="1" stop-color="#3f9143" />
+          <stop offset="0" stopColor="#48a547" />
+          <stop offset="1" stopColor="#3f9143" />
         </linearGradient>
         <linearGradient
           id="vscodeIconsFileTypeMongo2"
@@ -334,10 +341,10 @@ export const Icons = {
           gradientTransform="matrix(-.977 -.323 -.29 .877 -375.944 -928.287)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#41a247" />
-          <stop offset=".352" stop-color="#4ba74b" />
-          <stop offset=".956" stop-color="#67b554" />
-          <stop offset="1" stop-color="#69b655" />
+          <stop offset="0" stopColor="#41a247" />
+          <stop offset=".352" stopColor="#4ba74b" />
+          <stop offset=".956" stopColor="#67b554" />
+          <stop offset="1" stopColor="#69b655" />
         </linearGradient>
       </defs>
       <path
@@ -351,6 +358,107 @@ export const Icons = {
       <path
         fill="url(#vscodeIconsFileTypeMongo2)"
         d="M15.487 26.569S9.366 22.4 9.72 15.025a15.54 15.54 0 0 1 5.519-11.648A1.725 1.725 0 0 0 15.846 2c.381.82.319 12.243.359 13.579c.155 5.197-.289 10.009-.718 10.99Z"
+      />
+    </svg>
+  ),
+  firebase: (props: LucideProps) => (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 351">
+      <defs>
+        <filter
+          id="logosFirebase0"
+          width="200%"
+          height="200%"
+          x="-50%"
+          y="-50%"
+          filterUnits="objectBoundingBox"
+        >
+          <feGaussianBlur
+            in="SourceAlpha"
+            result="shadowBlurInner1"
+            stdDeviation="17.5"
+          />
+          <feOffset in="shadowBlurInner1" result="shadowOffsetInner1" />
+          <feComposite
+            in="shadowOffsetInner1"
+            in2="SourceAlpha"
+            k2="-1"
+            k3="1"
+            operator="arithmetic"
+            result="shadowInnerInner1"
+          />
+          <feColorMatrix
+            in="shadowInnerInner1"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"
+          />
+        </filter>
+        <filter
+          id="logosFirebase1"
+          width="200%"
+          height="200%"
+          x="-50%"
+          y="-50%"
+          filterUnits="objectBoundingBox"
+        >
+          <feGaussianBlur
+            in="SourceAlpha"
+            result="shadowBlurInner1"
+            stdDeviation="3.5"
+          />
+          <feOffset
+            dx="1"
+            dy="-9"
+            in="shadowBlurInner1"
+            result="shadowOffsetInner1"
+          />
+          <feComposite
+            in="shadowOffsetInner1"
+            in2="SourceAlpha"
+            k2="-1"
+            k3="1"
+            operator="arithmetic"
+            result="shadowInnerInner1"
+          />
+          <feColorMatrix
+            in="shadowInnerInner1"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.09 0"
+          />
+        </filter>
+        <path
+          id="logosFirebase2"
+          d="m1.253 280.732l1.605-3.131l99.353-188.518l-44.15-83.475C54.392-1.283 45.074.474 43.87 8.188L1.253 280.732Z"
+        />
+        <path
+          id="logosFirebase3"
+          d="m134.417 148.974l32.039-32.812l-32.039-61.007c-3.042-5.791-10.433-6.398-13.443-.59l-17.705 34.109l-.53 1.744l31.678 58.556Z"
+        />
+      </defs>
+      <path
+        fill="#FFC24A"
+        d="m0 282.998l2.123-2.972L102.527 89.512l.212-2.017L58.48 4.358C54.77-2.606 44.33-.845 43.114 6.951L0 282.998Z"
+      />
+      <use fill="#FFA712" fillRule="evenodd" href="#logosFirebase2" />
+      <use filter="url(#logosFirebase0)" href="#logosFirebase2" />
+      <path
+        fill="#F4BD62"
+        d="m135.005 150.38l32.955-33.75l-32.965-62.93c-3.129-5.957-11.866-5.975-14.962 0L102.42 87.287v2.86l32.584 60.233Z"
+      />
+      <use fill="#FFA50E" fillRule="evenodd" href="#logosFirebase3" />
+      <use filter="url(#logosFirebase1)" href="#logosFirebase3" />
+      <path
+        fill="#F6820C"
+        d="m0 282.998l.962-.968l3.496-1.42l128.477-128l1.628-4.431l-32.05-61.074z"
+      />
+      <path
+        fill="#FDE068"
+        d="m139.121 347.551l116.275-64.847l-33.204-204.495c-1.039-6.398-8.888-8.927-13.468-4.34L0 282.998l115.608 64.548a24.126 24.126 0 0 0 23.513.005"
+      />
+      <path
+        fill="#FCCA3F"
+        d="M254.354 282.16L221.402 79.218c-1.03-6.35-7.558-8.977-12.103-4.424L1.29 282.6l114.339 63.908a23.943 23.943 0 0 0 23.334.006l115.392-64.355Z"
+      />
+      <path
+        fill="#EEAB37"
+        d="M139.12 345.64a24.126 24.126 0 0 1-23.512-.005L.931 282.015l-.93.983l115.607 64.548a24.126 24.126 0 0 0 23.513.005l116.275-64.847l-.285-1.752l-115.99 64.689Z"
       />
     </svg>
   ),

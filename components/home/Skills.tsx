@@ -6,14 +6,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Icons } from "@/components/layout/icons";
 import { frontEndTechnologies as frontEnd, backEndTechnologies as backEnd, cardFooter } from "@/lib/skills";
 
 const Skills = ({}) => {
   return (
-    <section className="flex items-center justify-center">
+    <section className="flex flex-col items-start sm:items-center justify-center gap-2">
+      <h2 className="text-muted-foreground mb-2">Skills</h2>
       <Tabs defaultValue="frontend" className="w-full sm:w-[60%]">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="frontend">Frontend</TabsTrigger>
@@ -50,9 +50,7 @@ const Skills = ({}) => {
                 })}
               </div>
             </CardContent>
-            <CardFooter>
-              {cardFooter}
-            </CardFooter>
+            <CardFooter>{cardFooter}</CardFooter>
           </Card>
         </TabsContent>
         <TabsContent value="backend">
@@ -85,9 +83,7 @@ const Skills = ({}) => {
                 })}
               </div>
             </CardContent>
-            <CardFooter>
-              {cardFooter}
-            </CardFooter>
+            <CardFooter>{cardFooter}</CardFooter>
           </Card>
         </TabsContent>
       </Tabs>

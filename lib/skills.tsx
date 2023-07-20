@@ -67,8 +67,18 @@ export const frontEndTechnologies: techType[] = [
 
 export const backEndTechnologies: techType[] = [
   {
+    name: "Express",
+    icon: <Icons.express className={iconStyles} />,
+    isUsed: false,
+  },
+  {
     name: "Next Auth",
     icon: <Icons.nextAuth className={iconStyles} />,
+    isUsed: true,
+  },
+  {
+    name: "Zod",
+    icon: <Icons.zod className={iconStyles} />,
     isUsed: true,
   },
   {
@@ -77,23 +87,23 @@ export const backEndTechnologies: techType[] = [
     isUsed: true,
   },
   {
-    name: "MongoDB",
-    icon: <Icons.mongo className={iconStyles} />,
-    isUsed: false,
-  },
-  {
     name: "SQL",
     icon: <Icons.database className={iconStyles} />,
     isUsed: true,
   },
   {
-    name: "PlanetScale",
-    icon: <Icons.planetScale className={iconStyles} />,
-    isUsed: true,
+    name: "MongoDB",
+    icon: <Icons.mongo className={iconStyles} />,
+    isUsed: false,
   },
   {
-    name: "Zod",
-    icon: <Icons.zod className={iconStyles} />,
+    name: "Google Firebase",
+    icon: <Icons.firebase className={iconStyles} />,
+    isUsed: false,
+  },
+  {
+    name: "PlanetScale",
+    icon: <Icons.planetScale className={iconStyles} />,
     isUsed: true,
   },
   {

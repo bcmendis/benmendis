@@ -5,14 +5,6 @@
 
 removing blue highlight on tap in mobile
 * { -webkit-tap-highlight-color: rgba(0,0,0,0); }
-
-
-@layer base {
-  h1 {
-    @apply text-lg sm:text-2xl font-bold
-  }
-}
-
  
 @layer base {
   :root {
@@ -153,5 +145,14 @@ removing blue highlight on tap in mobile
   }
   body {
     @apply bg-background text-foreground;
+  }
+  h1 {
+    @apply text-4xl sm:text-5xl font-bold;
+  }
+  h2 {
+    @apply text-3xl sm:text-4xl font-semibold;
+  }
+  h3 {
+    @apply text-2xl sm:text-3xl font-semibold;
   }
 }
