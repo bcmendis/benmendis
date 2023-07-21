@@ -11,5 +11,7 @@ export interface ReviewPostItem {
         email: string,
         image: string,
         role: string,
+        job: string,
+        employer: string,
       };
     }

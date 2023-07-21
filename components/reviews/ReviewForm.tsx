@@ -1,6 +1,5 @@
-"use client"
-import 
-type { Session } from "next-auth";
+"use client";
+import type { Session } from "next-auth";
 import React, { useState } from "react";
 import { Card, CardContent } from "../ui/card";
 import UserAvatar from "../auth/UserAvatar";
@@ -10,40 +9,42 @@ import { Icons } from "../layout/icons";
 import { Avatar } from "../ui/avatar";
 import { cn } from "@/lib/utils";
 import { Input } from "../ui/input";
-import { QueryClient, useMutation, useQueryClient } from "@tanstack/react-query";
-import axios, {AxiosError} from "axios";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import axios, { AxiosError } from "axios";
 import { CreateReviewPayload } from "@/lib/validators/review";
 import { toast } from "@/hooks/use-toast";
 
 interface ReviewFormProps {
-  session: Session | null
+  session: Session | null;
 }
 
-
-const ReviewForm = ({session}:ReviewFormProps) => {
-  
+const ReviewForm = ({ session }: ReviewFormProps) => {
+  const [job, setJob] = useState<string>("");
+  const [employer, setEmployer] = useState<string>("");
   const [review, setReview] = useState<string>("");
   const router = useRouter();
 
   const QueryClient = useQueryClient();
-  const {mutate : createReview, isLoading} = useMutation({
-    mutationFn: async() => {
+  const { mutate: createReview, isLoading } = useMutation({
+    mutationFn: async () => {
       const payload: CreateReviewPayload = {
-        review
-      }
-      const {data} = await axios.post('/api/reviews', payload);
+        job,
+        employer,
+        review,
+      };
+      const { data } = await axios.post("/api/reviews", payload);
       console.log(data);
-      
+
       return data as string;
     },
-    onError: (error) => {
+    onError: error => {
       if (error instanceof AxiosError) {
         if (error.response?.status === 409) {
           return toast({
-            title: 'Review already exists',
-            description: 'Please update your review instead.',
-            variant: "destructive"
-          })
+            title: "Review already exists",
+            description: "Please update your review instead.",
+            variant: "destructive",
+          });
         }
         if (error.response?.status === 422) {
           return toast({
@@ -66,28 +67,34 @@ const ReviewForm = ({session}:ReviewFormProps) => {
         variant: "destructive",
       });
     },
-    onSuccess: (data) => {
+    onSuccess: data => {
       setReview("");
-      QueryClient.invalidateQueries({queryKey: ['reviews']});
+      QueryClient.invalidateQueries({ queryKey: ["reviews"] });
       toast({
         title: "Yay!",
         description: data,
         variant: "default",
       });
-    }
+    },
   });
 
-  
   const Review = (
-    <form className="flex flex-col sm:flex-row w-full h-full items-center gap-x-4 gap-y-4">
-      <div className="flex flex-1 w-full gap-x-4 items-center">
-        <UserAvatar
-          className="h-8 w-8 sm:h-10 sm:w-10"
-          user={{
-            name: session?.user.name || null,
-            image: session?.user.image || null,
-          }}
-        />
+    <form className="flex flex-col w-full h-full items-center gap-x-4 gap-y-4">
+      <div className="flex flex-col w-full gap-3">
+        <div className="flex flex-col md:flex-row w-full gap-3">
+          <Input
+            type="text"
+            value={job}
+            onChange={e => setJob(e.target.value)}
+            placeholder="Job Title"
+          />
+          <Input
+            type="text"
+            value={employer}
+            onChange={e => setEmployer(e.target.value)}
+            placeholder="Employer"
+          />
+        </div>
         <Input
           type="text"
           value={review}
@@ -97,23 +104,35 @@ const ReviewForm = ({session}:ReviewFormProps) => {
           }?`}
         />
       </div>
-      <Button
-        type="submit"
-        isLoading={isLoading}
-        disabled={review.length === 0}
-        onClick={(e) => {
-          e.preventDefault();
-          createReview()}}
-        className={cn(
-          buttonVariants({ variant: "secondary", size: "sm" }),
-          "w-full sm:w-fit"
-        )}
-      >
-        Post
-      </Button>
+      <div className="flex w-full gap-3">
+        <UserAvatar
+          className="h-8 w-8 sm:h-10 sm:w-10"
+          user={{
+            name: session?.user.name || null,
+            image: session?.user.image || null,
+          }}
+        />
+        <Button
+          type="submit"
+          isLoading={isLoading}
+          disabled={
+            review.length === 0 || job.length === 0 || employer.length === 0
+          }
+          onClick={e => {
+            e.preventDefault();
+            createReview();
+          }}
+          className={cn(
+            buttonVariants({ variant: "secondary", size: "sm" }),
+            "w-full"
+          )}
+        >
+          Post
+        </Button>
+      </div>
     </form>
   );
-  
+
   const SignInReview = (
     <div
       className="flex flex-col sm:flex-row w-full h-full items-center gap-x-4 gap-y-4"
@@ -137,11 +156,11 @@ const ReviewForm = ({session}:ReviewFormProps) => {
       </Button>
     </div>
   );
-  
+
   return (
     <Card className="flex max-w-4xl w-full p-2 items-center">
       <CardContent className="flex w-full h-full items-center p-2 sm:p-4 text-s sm:text-base">
-          { !session ? SignInReview : Review }
+        {!session ? SignInReview : Review}
       </CardContent>
     </Card>
   );

@@ -53,6 +53,8 @@ model User {
   emailVerified DateTime?
   image         String?
   role          UserRole  @default(USER)
+  job           String?
+  employer      String?
   accounts      Account[]
   sessions      Session[]
   review        Review[]

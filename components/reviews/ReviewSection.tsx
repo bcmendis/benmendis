@@ -1,5 +1,4 @@
 "use client";
-import { CSSProperties } from "react";
 import { toast } from "@/hooks/use-toast";
 import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
@@ -7,10 +6,13 @@ import { FC } from "react";
 import ReviewPost from "./ReviewPost";
 import { ReviewPostItem } from "@/types/review";
 import { BeatLoader } from "react-spinners/";
+import type { Session } from "next-auth";
 
-interface ReviewSectionProps {}
+interface ReviewSectionProps {
+  session: Session | null;
+}
 
-const ReviewSection: FC<ReviewSectionProps> = ({}) => {
+const ReviewSection: FC<ReviewSectionProps> = ({ session }) => {
   const { isLoading, isError, data, error } = useQuery({
     queryKey: ["reviews"],
     queryFn: async () => {
@@ -30,8 +32,9 @@ const ReviewSection: FC<ReviewSectionProps> = ({}) => {
   }
 
   return (
-    <div>
-      <div className="mx-auto mt-16 grid sm:grid-rows-[masonry] max-w-md grid-flow-dense grid-cols-1 gap-8 text-sm leading-6 sm:mt-20 sm:max-w-2xl sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-cols-4">
+    <>
+      <h2 className="text-muted-foreground">Review Wall</h2>
+      <div className="mx-auto grid sm:grid-rows-[masonry] max-w-md grid-flow-dense grid-cols-1 gap-8 text-sm leading-6  sm:max-w-2xl sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-cols-4">
         {data &&
           !isLoading &&
           !isError &&
@@ -40,7 +43,7 @@ const ReviewSection: FC<ReviewSectionProps> = ({}) => {
               key={review.id}
               className="odd:sm:col-span-2 first:xl:col-start-2"
             >
-              <ReviewPost review={review} />
+              <ReviewPost review={review} session={session} />
             </div>
           ))}
       </div>
@@ -51,7 +54,7 @@ const ReviewSection: FC<ReviewSectionProps> = ({}) => {
         aria-label="Loading Spinner"
         data-testid="loader"
       />
-    </div>
+    </>
   );
 };
 

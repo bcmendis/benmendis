@@ -2,6 +2,7 @@ import { StaticImageData } from "next/image";
 import bookstore from "../public/assets/portfolio/bookStore.png";
 import blog from "../public/assets/portfolio/blog.png";
 import jokeGpt from "../public/assets/portfolio/jokeGpt.png";
+import login from "../public/assets/portfolio/login.png";
 
 interface webAppsType {
   title: string,
@@ -30,8 +31,17 @@ export const webApps: webAppsType[] = [
     title: "JokeGPT",
     link: "https://joke-gpt-bcmendis.vercel.app/",
     image: jokeGpt,
-    description: "Aquires AI generated joke from OpenAI API from user provided prompt",
+    description:
+      "Aquires AI generated joke from OpenAI API from user provided prompt",
     featured: "OpenAI",
+  },
+  {
+    title: "Login Screen",
+    link: "https://login-page-next13-bcmendis.vercel.app/",
+    image: login,
+    description:
+      "Login form with instant user input feedback",
+    featured: "React Hook Form",
   },
 ];
 

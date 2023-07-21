@@ -9,9 +9,9 @@ const page: FC<pageProps> = async ({}) => {
   const session = await getAuthSession();
 
   return (
-    <div className="flex flex-col items-center gap-y-3">
+    <div className="flex flex-col items-center gap-y-10">
       <ReviewForm session={session} />
-      <ReviewSection />
+      <ReviewSection session={session} />
     </div>
   );
 };

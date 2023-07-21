@@ -17,18 +17,19 @@ const PortfolioPage = () => {
                   <Image
                     src={project.image}
                     alt={project.title}
+                    priority
                     className="w-full object-cover opacity-70 group-hover:opacity-100 group-ease-in"
                   />
-                  <div className="absolute left-0 bottom-0 p-2 flex items-center justify-between w-full bg-white/70 dark:bg-black/70">
+                  <div className="absolute inset-x-0 bottom-0 p-2 flex items-center justify-between w-full flex-wrap bg-white/70 dark:bg-black/70">
                     <span className="text-accent-foreground font-bold">
                       {project.title}
                     </span>
-                    <span className="px-3 py-1 rounded-full bg-muted-foreground text-muted font-semibold">
+                    <span className="px-2 py-1 rounded-full bg-muted-foreground text-xs text-muted font-semibold">
                       {project.featured}
                     </span>
                   </div>
                 </div>
-                <div className="p-2 text-muted-foreground text-base sm:text-lg text-center sm:text-left">
+                <div className="p-2 mt-2 text-muted-foreground text-base sm:text-lg text-center sm:text-left">
                   {project.description}
                 </div>
               </a>

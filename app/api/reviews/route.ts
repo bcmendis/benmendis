@@ -14,6 +14,8 @@ export async function GET() {
             email: true,
             image: true,
             role: true,
+            job: true,
+            employer: true,
           }
 
         }
@@ -48,7 +50,17 @@ export async function POST(req: Request) {
     }
 
     const body = await req.json();
-    const { review } = ReviewValidatator.parse(body);
+    const { job, employer, review } = ReviewValidatator.parse(body);
+
+    const updateUser = await db.user.update({
+      where: {
+        id: session.user.id
+      },
+      data: {
+        job,
+        employer,
+      },
+    });
 
     const createReview = await db.review.create({
       data: {
