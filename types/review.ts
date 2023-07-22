@@ -1,5 +1,3 @@
-
-
 export interface ReviewPostItem {
     id: string,
     content: string,

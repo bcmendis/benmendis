@@ -1,6 +1,6 @@
 "use client";
 import type { Session } from "next-auth";
-import React, { useState } from "react";
+import React from "react";
 import { Card, CardContent } from "../ui/card";
 import UserAvatar from "../auth/UserAvatar";
 import { Button, buttonVariants } from "../ui/button";
@@ -11,27 +11,33 @@ import { cn } from "@/lib/utils";
 import { Input } from "../ui/input";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
-import { CreateReviewPayload } from "@/lib/validators/review";
+import { CreateReviewPayload, ReviewValidatator } from "@/lib/validators/review";
 import { toast } from "@/hooks/use-toast";
+import TextareaAutosize from "react-textarea-autosize";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 interface ReviewFormProps {
   session: Session | null;
 }
 
 const ReviewForm = ({ session }: ReviewFormProps) => {
-  const [job, setJob] = useState<string>("");
-  const [employer, setEmployer] = useState<string>("");
-  const [review, setReview] = useState<string>("");
   const router = useRouter();
 
+  const {register, handleSubmit, formState: {errors}, reset} = useForm<CreateReviewPayload>({
+    resolver: zodResolver(ReviewValidatator),
+    defaultValues: {
+      job: "",
+      employer: "",
+      review: "",
+    },
+    mode:"all",
+  });
+  
   const QueryClient = useQueryClient();
+
   const { mutate: createReview, isLoading } = useMutation({
-    mutationFn: async () => {
-      const payload: CreateReviewPayload = {
-        job,
-        employer,
-        review,
-      };
+    mutationFn: async (payload: CreateReviewPayload) => {
       const { data } = await axios.post("/api/reviews", payload);
       console.log(data);
 
@@ -68,7 +74,6 @@ const ReviewForm = ({ session }: ReviewFormProps) => {
       });
     },
     onSuccess: data => {
-      setReview("");
       QueryClient.invalidateQueries({ queryKey: ["reviews"] });
       toast({
         title: "Yay!",
@@ -78,31 +83,52 @@ const ReviewForm = ({ session }: ReviewFormProps) => {
     },
   });
 
+    const onSubmit = async (data: CreateReviewPayload) => {
+      console.log(data);
+      createReview(data);
+      reset();
+    };
+
   const Review = (
-    <form className="flex flex-col w-full h-full items-center gap-x-4 gap-y-4">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col w-full h-full items-center gap-x-4 gap-y-4"
+    >
       <div className="flex flex-col w-full gap-3">
-        <div className="flex flex-col md:flex-row w-full gap-3">
-          <Input
-            type="text"
-            value={job}
-            onChange={e => setJob(e.target.value)}
-            placeholder="Job Title"
-          />
-          <Input
-            type="text"
-            value={employer}
-            onChange={e => setEmployer(e.target.value)}
-            placeholder="Employer"
+        <div className="flex flex-col md:items-end md:flex-row w-full gap-3">
+          <div className="w-full">
+            <p className="text-sm text-red-500 mb-1">{errors.job?.message}</p>
+            <Input
+              {...register("job")}
+              type="text"
+              placeholder="Job Title"
+              className={errors.job ? "border-red-500" : ""}
+            />
+          </div>
+          <div className="w-full">
+            <p className="text-sm text-red-500 mb-1">
+              {errors.employer?.message}
+            </p>
+            <Input
+              {...register("employer")}
+              type="text"
+              placeholder="Employer"
+              className={errors.employer ? "border-red-500" : ""}
+            />
+          </div>
+        </div>
+        <div className="w-full">
+          <p className="text-sm text-red-500 mb-1">{errors.review?.message}</p>
+          <TextareaAutosize
+            {...register("review")}
+            placeholder={`What do you think, ${
+              session?.user.name?.split(" ")[0]
+            }?`}
+            className={`${
+              errors.review ? "border-red-500" : ""
+            } w-full h-10 resize-none appearance-none overflow-hidden rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
           />
         </div>
-        <Input
-          type="text"
-          value={review}
-          onChange={e => setReview(e.target.value)}
-          placeholder={`What do you think, ${
-            session?.user.name?.split(" ")[0]
-          }?`}
-        />
       </div>
       <div className="flex w-full gap-3">
         <UserAvatar
@@ -115,13 +141,7 @@ const ReviewForm = ({ session }: ReviewFormProps) => {
         <Button
           type="submit"
           isLoading={isLoading}
-          disabled={
-            review.length === 0 || job.length === 0 || employer.length === 0
-          }
-          onClick={e => {
-            e.preventDefault();
-            createReview();
-          }}
+          disabled={Object.keys(errors).length > 0 ? true : false}
           className={cn(
             buttonVariants({ variant: "secondary", size: "sm" }),
             "w-full"
