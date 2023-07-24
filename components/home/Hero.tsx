@@ -9,6 +9,7 @@ import Link from "next/link";
 import Typewriter from "../utils/Typewriter";
 import { cn } from "@/lib/utils";
 import { fontCode } from "@/lib/fonts";
+import ProfileImage from "../ProfileImage";
 
 
 const typingData = [
@@ -65,7 +66,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="relative flex-1 aspect-square min-w-[150px] max-w-[250px]">
+        {/* <div className="relative flex-1 aspect-square min-w-[150px] max-w-[250px]">
           <Image
             src="/assets/home/profile-dark2.png"
             alt="Profile Photo Dark"
@@ -86,7 +87,8 @@ const Hero = () => {
                 33vw"
             className="block dark:hidden rounded-full border-4 border-accent"
           />
-        </div>
+        </div> */}
+        <ProfileImage />
       </CardContent>
     </Card>
   );

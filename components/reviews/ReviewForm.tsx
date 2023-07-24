@@ -101,6 +101,7 @@ const ReviewForm = ({ session }: ReviewFormProps) => {
             <Input
               {...register("job")}
               type="text"
+              id="job"
               placeholder="Job Title"
               className={errors.job ? "border-red-500" : ""}
             />
@@ -112,6 +113,7 @@ const ReviewForm = ({ session }: ReviewFormProps) => {
             <Input
               {...register("employer")}
               type="text"
+              id="employer"
               placeholder="Employer"
               className={errors.employer ? "border-red-500" : ""}
             />
@@ -121,6 +123,7 @@ const ReviewForm = ({ session }: ReviewFormProps) => {
           <p className="text-sm text-red-500 mb-1">{errors.review?.message}</p>
           <TextareaAutosize
             {...register("review")}
+            id="review"
             placeholder={`What do you think, ${
               session?.user.name?.split(" ")[0]
             }?`}

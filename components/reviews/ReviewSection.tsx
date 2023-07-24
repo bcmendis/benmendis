@@ -18,7 +18,13 @@ const ReviewSection: FC<ReviewSectionProps> = ({ session }) => {
     queryFn: async () => {
       const { data } = await axios.get("/api/reviews");
 
-      return data;
+    data.sort((a: ReviewPostItem)=>{
+        if(a.author.email === "benclintonmendis@gmail.com") {
+          return -1;
+        } else return 1;
+      })
+
+      return data as ReviewPostItem[];
     },
   });
 
