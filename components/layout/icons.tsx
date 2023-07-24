@@ -15,6 +15,7 @@ import {
   AtSign,
   MapPin,
   Check,
+  AlertTriangle,
   type Icon as LucideIcon,
 } from "lucide-react";
 
@@ -30,6 +31,7 @@ export const Icons = {
   leftChevron: ChevronLeft,
   rightChevron: ChevronRight,
   check: Check,
+  alertTriangle: AlertTriangle,
   user: User,
   user2: User2,
   phone: Phone,
