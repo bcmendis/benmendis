@@ -16,19 +16,34 @@ export const ContactValidatator = z
         message: "Must be between 1-50 characters",
       }),
     phone: z
-      .string()
-      .min(0)
-      .max(10, { message: "Must be a valid phone number" }),
+      .union([
+        z.string().length(10, { message: "Must be a valid phone number" }),
+        z.string().length(0),
+      ])
+      .optional()
+      .transform(e => (e === "" ? undefined : e)),
     job: z
-      .string()
-      .trim()
-      .min(0)
-      .max(50, { message: "Must be under 50 characters" }),
+      .union([
+        z
+          .string()
+          .trim()
+          .min(3, { message: "Must be over 3 characters" })
+          .max(50, { message: "Must be under 50 characters" }),
+        z.string().length(0),
+      ])
+      .optional()
+      .transform(e => (e === "" ? undefined : e)),
     employer: z
-      .string()
-      .trim()
-      .min(0)
-      .max(50, { message: "Must be under 50 characters" }),
+      .union([
+        z
+          .string()
+          .trim()
+          .min(3, { message: "Must be over 3 characters" })
+          .max(50, { message: "Must be under 50 characters" }),
+        z.string().length(0),
+      ])
+      .optional()
+      .transform(e => (e === "" ? undefined : e)),
     message: z
       .string()
       .trim()

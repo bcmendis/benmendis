@@ -13,6 +13,8 @@ import type { User } from "@prisma/client";
 import { Label } from "../ui/label";
 import { Button, buttonVariants } from "../ui/button";
 import TextareaAutosize from "react-textarea-autosize";
+import axios, { AxiosError } from "axios";
+import { toast } from "@/hooks/use-toast";
 
 interface ContactFormProps extends React.HTMLAttributes<HTMLElement> {
   user?: User | null;
@@ -50,13 +52,35 @@ const ContactForm: FC<ContactFormProps> = ({ user, className }) => {
     mode: "all",
   });
 
-  const onSubmit = async (data: CreateContactPayload) => {
-    setisLoading(true);
-    setTimeout(() => {
+  const onSubmit = async (payload: CreateContactPayload) => {
+    try {
+      console.log(payload);
+      
+      setisLoading(true);
+      const {data} = await axios.post("/api/contact", {payload})
       console.log(data);
-      setisLoading(false);
-      reset();
-    }, 5000);
+      // reset();
+      toast({
+        title: "Yay!",
+        description: data,
+        variant: "default",
+      });
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        if (error.response?.status === 422) {
+          return toast({
+            title: "Invalid contact input",
+            description: "Please check your input again.",
+            variant: "destructive",
+          });
+        }
+      }
+       toast({
+         title: "Oops! Something went wrong",
+         description: "Could not post review.",
+         variant: "destructive",
+       });
+    } finally {setisLoading(false);}
   };
 
   return (
@@ -77,7 +101,6 @@ const ContactForm: FC<ContactFormProps> = ({ user, className }) => {
           {...register("name")}
           type="text"
           id="name"
-          placeholder={user ? "" : "John Doe"}
           className={errors.name ? "border-red-500" : ""}
         />
       </div>
@@ -94,7 +117,6 @@ const ContactForm: FC<ContactFormProps> = ({ user, className }) => {
           {...register("email")}
           type="text"
           id="email"
-          placeholder={user ? "" : "johndoe@test.com"}
           className={errors.email ? "border-red-500" : ""}
         />
       </div>
@@ -111,7 +133,6 @@ const ContactForm: FC<ContactFormProps> = ({ user, className }) => {
           {...register("phone")}
           type="number"
           id="phone"
-          placeholder="(647) 789-1011"
           className={errors.phone ? "border-red-500" : ""}
         />
       </div>
@@ -128,8 +149,7 @@ const ContactForm: FC<ContactFormProps> = ({ user, className }) => {
           {...register("job")}
           type="text"
           id="job"
-          placeholder="Business Owner"
-          className={errors.phone ? "border-red-500" : ""}
+          className={errors.job ? "border-red-500" : ""}
         />
       </div>
       <div>
@@ -145,8 +165,7 @@ const ContactForm: FC<ContactFormProps> = ({ user, className }) => {
           {...register("employer")}
           type="text"
           id="employer"
-          placeholder="ACME Inc."
-          className={errors.phone ? "border-red-500" : ""}
+          className={errors.employer ? "border-red-500" : ""}
         />
       </div>
       <div>
