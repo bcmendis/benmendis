@@ -27,7 +27,7 @@ export const ContactValidatator = z
         z
           .string()
           .trim()
-          .min(3, { message: "Must be atleast 1 character" })
+          .min(1, { message: "Must be atleast 1 character" })
           .max(50, { message: "Must be under 50 characters" }),
         z.string().length(0),
       ])

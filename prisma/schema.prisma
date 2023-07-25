@@ -87,7 +87,7 @@ model Contact {
   phone String?
   job String?
   employer String?
-  message String
+  message String @db.VarChar(1000)
   user User? @relation(fields: [userId], references: [id])
   userId String?
 

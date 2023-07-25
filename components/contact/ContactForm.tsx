@@ -77,7 +77,7 @@ const ContactForm: FC<ContactFormProps> = ({ user, className }) => {
       }
        toast({
          title: "Oops! Something went wrong",
-         description: "Could not post review.",
+         description: "Could not send message.",
          variant: "destructive",
        });
     } finally {setisLoading(false);}

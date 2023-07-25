@@ -5,13 +5,13 @@ export const ReviewValidatator = z
     job: z
       .string()
       .trim()
-      .min(1, { message: "Must be between 1-50 characters" })
+      .min(1, { message: "Must be atleast 1 character" })
       .max(50, { message: "Must be between 1-50 characters" }),
     employer: z
       .string()
       .trim()
-      .min(1, { message: "Must be between 1-50 characters" })
-      .max(100, {
+      .min(1, { message: "Must be atleast 1 character" })
+      .max(50, {
         message: "Must be between 1-50 characters",
       }),
     review: z
