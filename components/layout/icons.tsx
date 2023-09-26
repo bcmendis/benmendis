@@ -16,6 +16,7 @@ import {
   MapPin,
   Check,
   AlertTriangle,
+  MessageCircle,
   type Icon as LucideIcon,
 } from "lucide-react";
 
@@ -37,6 +38,7 @@ export const Icons = {
   phone: Phone,
   atSign: AtSign,
   mapPin: MapPin,
+  messageCircle: MessageCircle,
   linkedIn: Linkedin,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>

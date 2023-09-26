@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import NavBar from '@/components/layout/NavBar';
 import { Toaster } from '@/components/ui/toaster';
 import Providers from './providers';
+import Chat from '@/components/chat/Chat';
 import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
@@ -32,8 +33,9 @@ export default function RootLayout({children}: RootLayoutProps) {
             <Toaster />
           </main>
         </Providers>
+        <Chat />
         <Analytics
-          debug={true}
+          debug={false}
         />
       </body>
     </html>
