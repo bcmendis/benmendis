@@ -34,12 +34,6 @@ export default function RootLayout({children}: RootLayoutProps) {
         </Providers>
         <Analytics
           debug={true}
-          beforeSend={event => {
-            if (event.url.includes("/admin")) {
-              return null;
-            }
-            return event;
-          }}
         />
       </body>
     </html>
