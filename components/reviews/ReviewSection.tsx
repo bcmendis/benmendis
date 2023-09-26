@@ -7,6 +7,7 @@ import ReviewPost from "./ReviewPost";
 import { ReviewPostItem } from "@/types/review";
 import { BeatLoader } from "react-spinners/";
 import type { Session } from "next-auth";
+import Link from "next/link";
 
 interface ReviewSectionProps {
   session: Session | null;
@@ -49,7 +50,9 @@ const ReviewSection: FC<ReviewSectionProps> = ({ session }) => {
               key={review.id}
               className="odd:sm:col-span-2 first:xl:col-start-2"
             >
+              <Link href={`/reviews/${review.id}`}>
               <ReviewPost review={review} session={session} />
+              </Link>
             </div>
           ))}
       </div>
