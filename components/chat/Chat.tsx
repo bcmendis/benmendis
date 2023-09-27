@@ -1,5 +1,5 @@
 "use client"
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import ChatHeader from "./ChatHeader";
 import ChatInput from "./ChatInput";
@@ -7,12 +7,8 @@ import { cn } from "@/lib/utils";
 
 const Chat: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  useEffect(()=>{
-    console.log(isOpen);
-  },[isOpen])
 
   function onClickHandler(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    console.log(e);
     setIsOpen(prev => !prev);
   }
   
@@ -23,7 +19,7 @@ const Chat: FC = () => {
       className="relative bg-black z-40 shadow"
     >
       <AccordionItem value="item-1">
-        <div className="fixed right-8 lg:w-72 bottom-6 bg-muted border border-b-0 rounded-md overflow-hidden">
+        <div className="fixed right-8 ml-8 lg:w-72 bottom-6 bg-muted border border-b-0 rounded-md overflow-hidden">
           <div className="w-full h-full flex flex-col">
             <AccordionTrigger
               onClick={e => onClickHandler(e)}

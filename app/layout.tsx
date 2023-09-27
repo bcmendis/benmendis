@@ -32,8 +32,8 @@ export default function RootLayout({children}: RootLayoutProps) {
             <section className="container py-6">{children}</section>
             <Toaster />
           </main>
-        </Providers>
         <Chat />
+        </Providers>
         <Analytics
           debug={false}
         />

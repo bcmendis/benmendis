@@ -7,7 +7,6 @@ interface ChatHeaderProps {
 }
 
 const ChatHeader: FC<ChatHeaderProps> = ({isOpen}) => {
-  console.log("isOpen inside", isOpen);
   return (
     <div className="w-full flex gap-3 justify-start items-center text-primary">
       <div
