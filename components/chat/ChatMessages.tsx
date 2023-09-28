@@ -3,6 +3,7 @@ import { MessagesContext } from "@/context/messages";
 import { cn } from "@/lib/utils";
 import { FC, HTMLAttributes, useContext } from "react";
 import MarkdownLite from "./MarkdownLite";
+import { useTheme } from "next-themes";
 
 interface ChatMessagesProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -10,11 +11,17 @@ const ChatMessages: FC<ChatMessagesProps> = ({ className, ...props }) => {
   const { messages } = useContext(MessagesContext);
   const invertedMessages = [...messages].reverse();
 
+  const {theme} = useTheme();
+
   return (
     <div
       {...props}
       className={cn(
-        "flex flex-col-reverse gap-3 overflow-y-auto scrollbar-thumb-purple scrollbar-thumb-rounded scrollbar-track-purple-lighter scrollbar-w-2 scrolling-touch",
+        "flex flex-col-reverse gap-3 bg-muted overflow-y-auto scrollbar-thumb-rounded scrollbar-w-2 scrolling-touch",
+        {
+          "scrollbar-track-bg-light scrollbar-thumb-light": theme === "light",
+          "scrollbar-track-bg-dark scrollbar-thumb-dark": theme === "dark",
+        },
         className
       )}
     >
@@ -38,10 +45,9 @@ const ChatMessages: FC<ChatMessagesProps> = ({ className, ...props }) => {
               <p
                 className={cn("px-4 py-2 rounded-lg", {
                   "bg-accent text-foreground": message.isUserMessage,
-                  "bg-gray-200 text-gray-900": !message.isUserMessage,
+                  "bg-muted-foreground text-background": !message.isUserMessage,
                 })}
               >
-                {/* {message.text} */}
                 <MarkdownLite text={message.text} />
               </p>
             </div>

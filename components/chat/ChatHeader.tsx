@@ -23,7 +23,7 @@ const ChatHeader: FC<ChatHeaderProps> = ({isOpen}) => {
       </div>
       {!isOpen && (
         <div className="flex lg:hidden aspect-square">
-          <div className="absolute top-2 left-3 w-3 h-3 rounded-full bg-green-500 border border-green-600" />
+          <div className="absolute top-2 left-3 w-2 h-2 rounded-full bg-green-400" />
           <Icons.messageCircle className="h-8 w-8 text-accent-foreground" />
         </div>
       )}

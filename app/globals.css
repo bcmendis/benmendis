@@ -72,6 +72,40 @@ removing blue highlight on tap in mobile
   }
 }
 
+
+.scrollbar-w-2::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+}
+
+.scrollbar-track-bg-dark::-webkit-scrollbar-track {
+  --bg-opacity: 100%;
+  background-color: hsl(var(--muted));
+  background-color: hsla(var(--muted) / var(--bg-opacity));
+}
+
+.scrollbar-thumb-dark::-webkit-scrollbar-thumb {
+  --bg-opacity: 50%;
+  background-color: hsl(var(--accent));
+  background-color: hsla(var(--accent) / var(--bg-opacity));
+}
+
+.scrollbar-track-bg-light::-webkit-scrollbar-track {
+  --bg-opacity: 100%;
+  background-color: hsl(var(--muted));
+  background-color: hsla(var(--muted) / var(--bg-opacity));
+}
+
+.scrollbar-thumb-light::-webkit-scrollbar-thumb {
+  --bg-opacity: 50%;
+  background-color: hsl(var(--accent));
+  background-color: hsla(var(--accent) / var(--bg-opacity));
+}
+
+.scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
+  border-radius: 0.25rem;
+}
+
 /* 
   Light Default {
     --background: 0 0% 100%;

@@ -14,7 +14,7 @@ const Providers = ({children}: ProvidersProps) => {
   const client = new QueryClient();
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
     <QueryClientProvider client={client}>
       <MessagesProvider >
       {children}

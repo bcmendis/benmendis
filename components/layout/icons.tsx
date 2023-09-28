@@ -17,6 +17,8 @@ import {
   Check,
   AlertTriangle,
   MessageCircle,
+  Loader2,
+  CornerDownLeft,
   type Icon as LucideIcon,
 } from "lucide-react";
 
@@ -38,6 +40,8 @@ export const Icons = {
   phone: Phone,
   atSign: AtSign,
   mapPin: MapPin,
+  loader2: Loader2,
+  cornerDownLeft: CornerDownLeft,
   messageCircle: MessageCircle,
   linkedIn: Linkedin,
   gitHub: (props: LucideProps) => (
