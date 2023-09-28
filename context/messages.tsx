@@ -24,7 +24,7 @@ export function MessagesProvider({ children }: { children: ReactNode }) {
     {
       id: nanoid(),
       isUserMessage: false,
-      text: "Hello, hoe can I help you?",
+      text: "Hello, how can I help you?",
     },
   ]);
 
@@ -53,7 +53,7 @@ export function MessagesProvider({ children }: { children: ReactNode }) {
     );
   };
 
-  <MessagesContext.Provider
+  return <MessagesContext.Provider
     value={{
       messages,
       isMessageUpdating,
