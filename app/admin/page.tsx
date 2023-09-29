@@ -1,3 +1,4 @@
+import Unauthorized from '@/components/auth/Unauthorized';
 import { getAuthSession } from '@/lib/auth'
 import { db } from '@/lib/prisma/db';
 import { redirect } from 'next/navigation';
@@ -6,8 +7,8 @@ import { redirect } from 'next/navigation';
 
 const page = async ({}) => {
   const session = await getAuthSession();
-  if(!session || session?.user.role !== 'ADMIN') {
-    redirect('/');
+  if(!session || session?.user.role !== 'USER') {
+    return <Unauthorized />
   }
   const users = await db.user.findMany();
    return (

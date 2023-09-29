@@ -32,7 +32,7 @@ export const webApps: webAppsType[] = [
     link: "https://joke-gpt-bcmendis.vercel.app/",
     image: jokeGpt,
     description:
-      "Aquires AI generated joke from OpenAI API from user provided prompt",
+      "Acquires AI generated joke from OpenAI API from user provided prompt",
     featured: "OpenAI",
   },
   {

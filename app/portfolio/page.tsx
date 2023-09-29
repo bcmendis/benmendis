@@ -1,6 +1,5 @@
 import { webApps } from "@/lib/portfolio";
 import Image from "next/image";
-import Link from "next/link";
 
 const PortfolioPage = () => {
   return (

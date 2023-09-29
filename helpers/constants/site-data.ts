@@ -92,7 +92,7 @@ https://benmendis.vercel.app/
 <content>
     <project>
         <title>JokeGPT</title>
-        <desc>Aquires an AI generated joke from OpenAI, through a user provided prompt</desc>
+        <desc>Acquires an AI generated joke from OpenAI, through a user provided prompt</desc>
         <technicalDescription>
         This project uses Next.js & the OpenAI API to fetch an AI generated joke, by submitting a user prompt.
         e.g. "Tell me a joke about clowns."

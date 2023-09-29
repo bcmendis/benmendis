@@ -10,11 +10,13 @@ const ProfileImage = () => {
           src={profileDark}
           alt="Profile Photo Dark"
           className="hidden dark:block rounded-full border-4 border-accent"
+          priority
         />
         <Image
           src={profileLight}
           alt="Profile Photo Light"
           className="block dark:hidden rounded-full border-4 border-accent"
+          priority
         />
       </div>
   );
