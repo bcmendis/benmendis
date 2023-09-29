@@ -22,7 +22,7 @@ export default function RootLayout({children}: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-fixed bg-blob-scene-pattern-light dark:bg-blob-scene-pattern-dark bg-cover font-sans antialiased",
           fontSans.variable
         )}
       >
@@ -32,11 +32,9 @@ export default function RootLayout({children}: RootLayoutProps) {
             <section className="container py-6">{children}</section>
             <Toaster />
           </main>
-        <Chat />
+          <Chat />
         </Providers>
-        <Analytics
-          debug={false}
-        />
+        <Analytics debug={false} />
       </body>
     </html>
   );

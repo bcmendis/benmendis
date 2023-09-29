@@ -76,6 +76,12 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage: {
+        "blob-scene-pattern-light":
+          "url('../public/assets/auth/blobSceneBackgroundLight.svg')",
+        "blob-scene-pattern-dark":
+          "url('../public/assets/auth/blobSceneBackgroundDark.svg')",
+      },
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/forms")],

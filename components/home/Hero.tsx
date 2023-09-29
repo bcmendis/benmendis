@@ -53,7 +53,10 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-3 mt-1">
               <Link
                 href="/portfolio"
-                className={buttonVariants({ variant: "secondary", size: "lg" })}
+                className={buttonVariants({
+                  variant: "secondary",
+                  size: "lg",
+                })}
               >
                 Portfolio
               </Link>
