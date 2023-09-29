@@ -7,7 +7,7 @@ import { redirect } from 'next/navigation';
 
 const page = async ({}) => {
   const session = await getAuthSession();
-  if(!session || session?.user.role !== 'USER') {
+  if(!session || session?.user.role !== 'ADMIN') {
     return <Unauthorized />
   }
   const users = await db.user.findMany();
