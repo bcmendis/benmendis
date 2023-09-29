@@ -25,13 +25,13 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
   const textAreaRef = useRef<null | HTMLTextAreaElement>(null);
   
   const { mutate: sendMessage, isLoading } = useMutation({
-    mutationFn: async (message: Message) => {
+    mutationFn: async (_message: Message) => {
       const response = await fetch("/api/message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ messages: [message] }),
+        body: JSON.stringify({ messages }),
       });
 
       if(!response.ok) {
@@ -96,6 +96,7 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
     >
       <div className="relative mt-4 flex-1 overflow-hidden rounded-lg border-none outline-none">
         <TextareaAutosize
+          id="chatInput"
           name="chatInput"
           ref={textAreaRef}
           rows={2}
@@ -123,10 +124,17 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
 
         <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
           <kbd className="inline-flex items-center rounded border bg-muted border-muted px-1 font-sans text-xs text-accent-foreground ">
-            {isLoading ? <Icons.loader2 className="w-3 h-3 animate-spin"/> : <Icons.cornerDownLeft className="w-3 h-3"/>}
+            {isLoading ? (
+              <Icons.loader2 className="w-3 h-3 animate-spin" />
+            ) : (
+              <Icons.cornerDownLeft className="w-3 h-3" />
+            )}
           </kbd>
         </div>
-        <div aria-hidden='true' className="absolute inset-x-0 bottom-0 border-t border-background peer-focus:border-t-2 peer-focus:border-accent"/>
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 border-t border-background peer-focus:border-t-2 peer-focus:border-accent"
+        />
       </div>
     </div>
   );

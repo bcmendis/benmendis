@@ -36,7 +36,7 @@ const Chat: FC = () => {
             <AccordionTrigger
               onClick={e => onClickHandler(e)}
               className={cn("px-2 xl:px-6 rounded-md", {
-                "lg:border-b-2 lg:border-accent": !isOpen,
+                "xl:border-b-2 xl:border-accent": !isOpen,
                 "border-b-2 border-accent": isOpen,
               })}
             >

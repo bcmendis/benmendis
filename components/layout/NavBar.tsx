@@ -17,25 +17,28 @@ const NavBar = async () => {
   const session = await getAuthSession();
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background">
+    <header className="sticky top-0 z-40 w-full border-b bg-fixed bg-cover bg-no-repeat bg-blob-scene-pattern-light dark:bg-blob-scene-pattern-dark">
       <div className="container flex h-16 justify-between items-center md:gap-5">
         <Link href="/" className="flex items-center space-x-2">
           <Icons.logo className="h-6 w-6 text-accent-foreground" />
           <span className="inline-block font-bold">{siteConfig.name}</span>
         </Link>
         <SiteLinks items={items} session={session} />
-          <nav className="hidden md:flex items-center gap-x-3">
-            <SocialLinks />
-            <ThemeToggle />
-            {session?.user ? (
-              <UserAccountNav user={session.user} />
-            ) : (
-              <Link href="/sign-in" className={buttonVariants({variant:"secondary"})}>
-                Sign In
-              </Link>
-            )}
-          </nav>
-          <SiteLinksMobile items={items} session={session}/>
+        <nav className="hidden md:flex items-center gap-x-3">
+          <SocialLinks />
+          <ThemeToggle />
+          {session?.user ? (
+            <UserAccountNav user={session.user} />
+          ) : (
+            <Link
+              href="/sign-in"
+              className={buttonVariants({ variant: "secondary" })}
+            >
+              Sign In
+            </Link>
+          )}
+        </nav>
+        <SiteLinksMobile items={items} session={session} />
       </div>
       <ScrollIndicator />
     </header>
