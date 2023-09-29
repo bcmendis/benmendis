@@ -63,6 +63,11 @@ export const frontEndTechnologies: techType[] = [
     icon: <Icons.reactHookForm className={iconStyles} />,
     isUsed: true,
   },
+  {
+    name: "Docker",
+    icon: <Icons.docker className={iconStyles} />,
+    isUsed: false,
+  },
 ];
 
 export const backEndTechnologies: techType[] = [
@@ -110,5 +115,10 @@ export const backEndTechnologies: techType[] = [
     name: "AWS",
     icon: <Icons.aws className={iconStyles} />,
     isUsed: false,
+  },
+  {
+    name: "OpenAI",
+    icon: <Icons.openAi className={iconStyles} />,
+    isUsed: true,
   },
 ];

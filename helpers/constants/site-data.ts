@@ -1,44 +1,132 @@
 export const siteData = `
 <url>
-<loc>https://books.toscrape.com/</loc>
-<desc>Your book store</desc>
-</url>
-<url>
-<loc>https://books.toscrape.com/catalogue/category/books_1/index.html</loc>
-<desc>An overview about our book collection</desc>
-</url>
-<url>
-<loc>https://books.toscrape.com/catalogue/category/books/travel_2/index.html</loc>
+<loc>
+https://benmendis.vercel.app/
+</loc>
+<title>Ben's personal website</title>
+<desc>My website where I implement the most cutting edge of web technologies while adhering to industry best practices and web standards</desc>
 <content>
-    <book>
-    <url>https://books.toscrape.com/catalogue/its-only-the-himalayas_981/index.html</url>
-    <desc>A book about travelling the himalayas</desc>
-    <price>45.17</price>
-    <availability>in stock</availability>
-    </book>
-    <book>
-    <url>https://books.toscrape.com/catalogue/full-moon-over-noahs-ark-an-odyssey-to-mount-ararat-and-beyond_811/index.html</url>
-    <desc>A book by Rick Ansonson about his journey to Mount Ararat</desc>
-    <price>49.43</price>
-    <availability>in stock</availability>
-    </book>
+    <technologies>
+    <frontend>
+        <list>
+            <li>Next.js 13</li>
+            <li>React 18</li>
+            <li>Redux/RTK</li>
+            <li>Tanstack/React Query</li>
+            <li>Axios</li>
+            <li>Jest</li>
+            <li>Tailwind CSS</li>
+            <li>React Hook Form</li>
+            <li>Framer Motion</li>
+            <li>Docker</li>
+        </list>
+    </frontend>
+    <backend>
+        <list>
+            <li>Express.js</li>
+            <li>Next Auth</li>
+            <li>Zod</li>
+            <li>Prisma</li>
+            <li>SQL</li>
+            <li>MongoDB</li>
+            <li>Google Firebase</li>
+            <li>PlanetScale</li>
+            <li>AWS</li>
+            <li>OpenAI</li>
+        </list>
+    </backend>
+    </technologies>
 </content>
 </url>
+
 <url>
-<loc>https://books.toscrape.com/catalogue/category/books/mystery_3/index.html</loc>
+<loc>https://benmendis.vercel.app/portfolio</loc>
+<desc>A collection of Ben's projects</desc>
+</url>
+
+<url>
+<loc>https://book-store-bcmendis.vercel.app/</loc>
 <content>
-    <book>
-    <url>https://books.toscrape.com/catalogue/sharp-objects_997/index.html</url>
-    <desc>A book about by Gillian Flynn about Camille Preaker's troubled past</desc>
-    <price>47.87</price>
-    <availability>in stock</availability>
-    </book>
-    <book>
-    <url>https://books.toscrape.com/catalogue/the-past-never-ends_942/index.html</url>
-    <desc>A book by Jackson Burnett about the attourney Chester Morgan. His friend died in an unexplained accidental death.</desc>
-    <price>56.50</price>
-    <availability>in stock</availability>
-    </book>
+    <project>
+        <title>BlazeBooks</title>
+        <desc>An online bookstore allowing users to add, delete & edit books</desc>
+        <technicalDescription>
+        This project uses Next.js & Redux Toolkit.
+        It leverages server-side rendering(SSR) to fetch an array of books, to initialize the Redux store
+        </technicalDescription>
+        <technologies>
+            <li>Next.js</li>
+            <li>Redux ToolKit</li>
+            <li>Next Redux Wrapper</li>
+            <li>React Hook Forms</li>
+            <li>CRUD operations</li>
+        </technologies>
+    </project>
+</content>
+</url>
+
+<url>
+<loc>https://blog-query-bcmendis.vercel.app/</loc>
+<content>
+    <project>
+        <title>Blog-it</title>
+        <desc>List of Blog posts fetched from an API, including pagination</desc>
+        <technicalDescription>
+        This project uses Next.js & React Query to fetch and cache a list of blog posts from an API.
+        Server-side rendering is also used to hydrate the client to ensure a fast user experience.
+        Ben also created a custom "usePagination" hook to display the posts in an organized fashion.
+        </technicalDescription>
+        <technologies>
+            <li>Next.js</li>
+            <li>React Query</li>
+            <li>Next Redux Wrapper</li>
+            <li>React Hook Form</li>
+            <li>Custom Hooks</li>
+        </technologies>
+    </project>
+</content>
+</url>
+
+<url>
+<loc>https://joke-gpt-bcmendis.vercel.app/</loc>
+<content>
+    <project>
+        <title>JokeGPT</title>
+        <desc>Aquires an AI generated joke from OpenAI, through a user provided prompt</desc>
+        <technicalDescription>
+        This project uses Next.js & the OpenAI API to fetch an AI generated joke, by submitting a user prompt.
+        e.g. "Tell me a joke about clowns."
+        Initially created with React & Express and fetching a random predefined joke, Ben re-visited this project to rejuvenate it with new technologies.
+        Also known as "B-3N's little brother".
+        </technicalDescription>
+        <technologies>
+            <li>Next.js</li>
+            <li>OpenAI API</li>
+        </technologies>
+        <languageModel>text-davinci-002</languageModel>
+    </project>
+</content>
+</url>
+
+<url>
+<loc>https://login-page-next13-bcmendis.vercel.app/</loc>
+<content>
+    <project>
+        <title>Login Page</title>
+        <desc>A login form with instant user input feedback</desc>
+        <technicalDescription>
+        This project uses Next.js & React Hook forms to simulate a login form.
+        It utilizes hooks and custom regex validations to provide clear & instant feedback to the user regarding any error states.
+        Tailwind CSS was also used to provide an attractive & responsive UI design.
+        This application was also contanerized using Docker.
+        </technicalDescription>
+        <technologies>
+            <li>Next.js</li>
+            <li>React Hook Form</li>
+            <li>Tailwind CSS</li>
+            <li>Docker</li>
+        </technologies>
+    </project>
 </content>
 </url>
 `;

@@ -24,7 +24,7 @@ export function MessagesProvider({ children }: { children: ReactNode }) {
     {
       id: nanoid(),
       isUserMessage: false,
-      text: "Hello, how can I help you?",
+      text: "Hello, I am B-3N, AI assistant. Ask me anything?",
     },
   ]);
 
