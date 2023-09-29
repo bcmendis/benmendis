@@ -1,6 +1,7 @@
 "use client";
 import { FC, useState } from "react";
 import { cn } from "@/lib/utils";
+import { Icons } from "../layout/icons";
 
 import {
   Accordion,
@@ -40,6 +41,15 @@ const Chat: FC = () => {
               })}
             >
               <ChatHeader isOpen={isOpen} />
+              <Icons.chevronDown
+                className={cn(
+                  "h-4 w-4 text-primary shrink-0 transition-transform duration-200",
+                  {
+                    "hidden lg:flex": !isOpen,
+                    "flex": isOpen,
+                  }
+                )}
+              />
             </AccordionTrigger>
             <AccordionContent>
               <div className="flex flex-col h-[18rem] sm:h-80 xl:h-[28rem]">
