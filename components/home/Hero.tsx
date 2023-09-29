@@ -1,14 +1,13 @@
-
+import Link from "next/link";
+import { fontCode } from "@/lib/fonts";
 import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
 import {
   Card,
   CardContent,
 } from "@/components/ui/card";
-import Image from "next/image";
-import Link from "next/link";
 import Typewriter from "../utils/Typewriter";
-import { cn } from "@/lib/utils";
-import { fontCode } from "@/lib/fonts";
 import ProfileImage from "../ProfileImage";
 
 

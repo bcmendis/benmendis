@@ -1,7 +1,6 @@
 import Unauthorized from '@/components/auth/Unauthorized';
 import { getAuthSession } from '@/lib/auth'
 import { db } from '@/lib/prisma/db';
-import { redirect } from 'next/navigation';
 
 
 

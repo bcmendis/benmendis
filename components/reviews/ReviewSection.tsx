@@ -2,7 +2,7 @@
 import { toast } from "@/hooks/use-toast";
 import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
-import { CSSProperties, FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import ReviewPost from "./ReviewPost";
 import { ReviewPostItem } from "@/types/review";
 import { BeatLoader } from "react-spinners/";

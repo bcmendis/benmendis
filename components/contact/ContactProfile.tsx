@@ -1,12 +1,14 @@
 "use client"
-import { cn } from "@/lib/utils";
 import { FC } from "react";
-import ProfileImage from "../ProfileImage";
+import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 import { Icons } from "../layout/icons";
+import ProfileImage from "../ProfileImage";
 import SocialLinks from "../layout/SocialLinks";
+
 import { Separator } from "../ui/separator";
 import { Button, buttonVariants } from "../ui/button";
-import { useRouter } from "next/navigation";
+
 import type { Session } from "next-auth";
 
 interface ContactProfileProps extends React.HTMLAttributes<HTMLElement> {

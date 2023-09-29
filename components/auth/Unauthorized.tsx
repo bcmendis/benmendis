@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import SpecialPageWrapper, { SpecialPageCard } from '../utils/SpecialPage';
+import { SpecialPageWrapper, SpecialPageCard } from "../utils/SpecialPage";
 import unauthorizedLight from "../../public/assets/auth/unauthorizedLight.svg";
 import unauthorizedDark from "../../public/assets/auth/unauthorizedDark.svg";
 

@@ -39,7 +39,7 @@ const PorfolioLayout = ({ children }: PorfolioLayoutProps) => {
         </div>
         <Separator className="my-6" />
         <div className="flex flex-col space-y-4 lg:flex-row lg:space-x-24 lg:space-y-0">
-          <aside className="sm:self-start sticky mx-0 lg:-mx-4 w-full lg:w-1/5 pt-4 pb-2 sm:py-6 top-16 sm:top-16 lg:top-20 bg-background z-10">
+          <aside className="bg-background rounded-b-lg lg:self-start sticky mx-0 lg:-mx-4 w-full lg:w-1/5 py-3 sm:py-3 sm:px-2 lg:pt-6 lg:px-1 top-16 lg:top-20 z-10">
             <SidebarNav items={sidebarNavItems} />
           </aside>
           <div className="flex flex-1 w-full lg:max-w-4xl">{children}</div>

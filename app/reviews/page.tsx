@@ -1,8 +1,7 @@
 import ReviewForm from "@/components/reviews/ReviewForm";
 import ReviewSection from "@/components/reviews/ReviewSection";
 import { getAuthSession } from "@/lib/auth";
-import { useTheme } from "next-themes";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 
 interface pageProps {}
 

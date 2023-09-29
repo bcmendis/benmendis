@@ -13,8 +13,6 @@ export async function POST(req: Request) {
       user = await db.user.findFirst({ where: { id: session.user.id } });
     }
 
-    // console.log(user);
-
     const body = await req.json();
     console.log("payload", body.payload);
 

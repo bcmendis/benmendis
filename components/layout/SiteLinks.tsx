@@ -1,11 +1,13 @@
 "use client"
 
 import Link from "next/link";
-
-import { Icons } from "@/components/layout/icons";
-import { cn } from "@/lib/utils";
-import { NavItem } from "@/types/nav";
 import { usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
+import { cn } from "@/lib/utils";
+import { Icons } from "@/components/layout/icons";
+
+import type { Session } from "next-auth";
+import { NavItem } from "@/types/nav";
 
 import {
   Sheet,
@@ -17,9 +19,7 @@ import SocialLinks from "./SocialLinks";
 import { ThemeToggleMobile } from "./theme-toggle";
 import { Separator } from "../ui/separator";
 import { Button, buttonVariants } from "../ui/button";
-import type { Session } from "next-auth";
 import UserAvatar from "../auth/UserAvatar";
-import { signOut } from "next-auth/react";
 
 
 

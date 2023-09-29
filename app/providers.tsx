@@ -1,8 +1,7 @@
 "use client"
-
 import { ThemeProvider } from "@/components/layout/theme-provider";
-import { MessagesProvider } from "@/context/messages";
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
+import { MessagesProvider } from "@/context/messages";
 
 interface ProvidersProps {
   children: React.ReactNode

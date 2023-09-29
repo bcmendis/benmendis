@@ -1,7 +1,7 @@
 import { NextAuthOptions, getServerSession } from "next-auth";
 import GoogleProvider from "next-auth/providers/google"
-import { db } from "./prisma/db"
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import { db } from "./prisma/db"
 
 
 function getGoogleCredentials() {

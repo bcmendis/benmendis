@@ -1,21 +1,22 @@
 "use client";
 import type { Session } from "next-auth";
 import React from "react";
+import axios, { AxiosError } from "axios";
+import { useRouter } from "next/navigation";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { CreateReviewPayload, ReviewValidatator } from "@/lib/validators/review";
+import { cn } from "@/lib/utils";
+import TextareaAutosize from "react-textarea-autosize";
+
+import { toast } from "@/hooks/use-toast";
 import { Card, CardContent } from "../ui/card";
 import UserAvatar from "../auth/UserAvatar";
 import { Button, buttonVariants } from "../ui/button";
-import { useRouter } from "next/navigation";
-import { Icons } from "../layout/icons";
 import { Avatar } from "../ui/avatar";
-import { cn } from "@/lib/utils";
 import { Input } from "../ui/input";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios, { AxiosError } from "axios";
-import { CreateReviewPayload, ReviewValidatator } from "@/lib/validators/review";
-import { toast } from "@/hooks/use-toast";
-import TextareaAutosize from "react-textarea-autosize";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { Icons } from "../layout/icons";
 
 interface ReviewFormProps {
   session: Session | null;
@@ -39,7 +40,6 @@ const ReviewForm = ({ session }: ReviewFormProps) => {
   const { mutate: createReview, isLoading } = useMutation({
     mutationFn: async (payload: CreateReviewPayload) => {
       const { data } = await axios.post("/api/reviews", payload);
-      console.log(data);
 
       return data as string;
     },
@@ -84,7 +84,6 @@ const ReviewForm = ({ session }: ReviewFormProps) => {
   });
 
     const onSubmit = async (data: CreateReviewPayload) => {
-      console.log(data);
       createReview(data);
       reset();
     };

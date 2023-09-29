@@ -1,6 +1,4 @@
 "use client";
-
-import { cn } from "@/lib/utils";
 import { FC, useState } from "react";
 import { Input } from "../ui/input";
 import { useForm } from "react-hook-form";
@@ -9,12 +7,15 @@ import {
   ContactValidatator,
   CreateContactPayload,
 } from "@/lib/validators/contact";
-import type { User } from "@prisma/client";
+import axios, { AxiosError } from "axios";
+import { toast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
+
 import { Label } from "../ui/label";
 import { Button, buttonVariants } from "../ui/button";
 import TextareaAutosize from "react-textarea-autosize";
-import axios, { AxiosError } from "axios";
-import { toast } from "@/hooks/use-toast";
+
+import type { User } from "@prisma/client";
 
 interface ContactFormProps extends React.HTMLAttributes<HTMLElement> {
   user?: User | null;
@@ -54,12 +55,10 @@ const ContactForm: FC<ContactFormProps> = ({ user, className }) => {
 
   const onSubmit = async (payload: CreateContactPayload) => {
     try {
-      console.log(payload);
       
       setisLoading(true);
       const {data} = await axios.post("/api/contact", {payload})
-      console.log(data);
-      // reset();
+      reset();
       toast({
         title: "Yay!",
         description: data,

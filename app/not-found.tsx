@@ -1,8 +1,7 @@
-
+import { SpecialPageWrapper, SpecialPageCard } from "@/components/utils/SpecialPage";
 import notFoundLight from "../public/assets/auth/notFoundLight.svg";
 import notFoundDark from "../public/assets/auth/notFoundDark.svg";
 
-import SpecialPageWrapper, { SpecialPageCard } from "@/components/utils/SpecialPage";
 
 export default function NotFound() {
   return (

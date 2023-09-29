@@ -1,10 +1,10 @@
 "use client";
-import { ReviewPostItem } from "@/types/review";
 import { FC } from "react";
+import type { Session } from "next-auth";
+import { ReviewPostItem } from "@/types/review";
 import UserAvatar from "../auth/UserAvatar";
 import { Separator } from "../ui/separator";
 import { format } from "date-fns";
-import type { Session } from "next-auth";
 
 interface ReviewPostProps {
   review: ReviewPostItem;

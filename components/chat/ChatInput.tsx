@@ -1,12 +1,13 @@
 "use client";
+import { FC, HTMLAttributes, useContext, useRef, useState } from "react";
 import { MessagesContext } from "@/context/messages";
-import { cn } from "@/lib/utils";
 import { Message } from "@/lib/validators/message";
 import { useMutation } from "@tanstack/react-query";
 import { nanoid } from "nanoid";
-import { FC, HTMLAttributes, useContext, useRef, useState } from "react";
-import TextareaAutosize from "react-textarea-autosize";
 import { Icons } from "../layout/icons";
+import { cn } from "@/lib/utils";
+
+import TextareaAutosize from "react-textarea-autosize";
 import { toast } from "@/hooks/use-toast";
 
 interface ChatInputProps extends HTMLAttributes<HTMLDivElement> {}
@@ -91,7 +92,7 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
   return (
     <div
       {...props}
-      className={cn("border-t-2 border-accent", className)}
+      className={cn("border-t-2 border-accent rounded-md", className)}
     >
       <div className="relative mt-4 flex-1 overflow-hidden rounded-lg border-none outline-none">
         <TextareaAutosize

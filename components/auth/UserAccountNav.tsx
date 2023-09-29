@@ -1,10 +1,10 @@
 "use client"
-
-import { User } from 'next-auth'
 import { FC } from 'react'
+import { User } from 'next-auth'
+import { signOut } from 'next-auth/react'
+
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '../ui/dropdown-menu'
 import UserAvatar from './UserAvatar'
-import { signOut } from 'next-auth/react'
 
 interface UserAccountNavProps {
   user: Pick<User, 'name' | 'image' | 'email'>

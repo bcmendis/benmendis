@@ -1,10 +1,11 @@
-import { FC } from 'react'
-import {SpecialPageCard, SpecialPageWrapper} from '@/components/utils/SpecialPage';
-import UserAuthForm from '@/components/auth/UserAuthForm';
+import { FC } from "react";
+import {
+  SpecialPageCard,
+  SpecialPageWrapper,
+} from "@/components/utils/SpecialPage";
 import loginImageLight from "../../../public/assets/auth/signInImageLight.svg";
 import loginImageDark from "../../../public/assets/auth/signInImageDark.svg";
-
-
+import UserAuthForm from "@/components/auth/UserAuthForm";
 
 const SignInPage: FC = ({}) => {
   return (
@@ -22,6 +23,6 @@ const SignInPage: FC = ({}) => {
       </SpecialPageCard>
     </SpecialPageWrapper>
   );
-}
+};
 
-export default SignInPage
+export default SignInPage;

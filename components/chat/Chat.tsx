@@ -1,5 +1,7 @@
 "use client";
 import { FC, useState } from "react";
+import { cn } from "@/lib/utils";
+
 import {
   Accordion,
   AccordionContent,
@@ -8,7 +10,6 @@ import {
 } from "../ui/accordion";
 import ChatHeader from "./ChatHeader";
 import ChatInput from "./ChatInput";
-import { cn } from "@/lib/utils";
 import ChatMessages from "./ChatMessages";
 
 const Chat: FC = () => {
@@ -22,14 +23,14 @@ const Chat: FC = () => {
     <Accordion
       type="single"
       collapsible
-      className="relative bg-black z-40 shadow-xl"
+      className="relative z-40 shadow-xl"
     >
       <AccordionItem value="item-1">
-        <div className="fixed right-8 ml-8 lg:w-72 bottom-6 bg-muted border border-b-0 border-muted rounded-md overflow-hidden">
+        <div className="fixed right-8 ml-8 lg:w-72 bottom-6 bg-muted border border-b-0 border-muted rounded-md ">
           <div className="w-full h-full flex flex-col">
             <AccordionTrigger
               onClick={e => onClickHandler(e)}
-              className={cn("px-2 lg:px-6 ", {
+              className={cn("px-2 lg:px-6 rounded-md", {
                 "lg:border-b-2 lg:border-accent": !isOpen,
                 "border-b-2 border-accent": isOpen,
               })}

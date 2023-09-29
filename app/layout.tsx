@@ -1,12 +1,13 @@
 import '@/app/globals.css'
 import { Metadata } from 'next'
-import { fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
+import { fontSans } from "@/lib/fonts";
+import { Analytics } from '@vercel/analytics/react';
+
+import Providers from './providers';
 import NavBar from '@/components/layout/NavBar';
 import { Toaster } from '@/components/ui/toaster';
-import Providers from './providers';
 import Chat from '@/components/chat/Chat';
-import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: 'Ben Mendis',
@@ -27,7 +28,7 @@ export default function RootLayout({children}: RootLayoutProps) {
         )}
       >
         <Providers>
-          <main className="min-h-screen antialiased">
+          <main className="antialiased">
             <NavBar />
             <section className="container py-6">{children}</section>
             <Toaster />

@@ -1,9 +1,11 @@
 import { FC } from 'react'
+import { getAuthSession } from '@/lib/auth';
+import { db } from '@/lib/prisma/db';
+
 import { Card, CardContent } from "../ui/card";
 import ContactProfile from './ContactProfile';
 import ContactForm from './ContactForm';
-import { getAuthSession } from '@/lib/auth';
-import { db } from '@/lib/prisma/db';
+
 import type { User } from '@prisma/client';
 
 interface ContactCardProps {

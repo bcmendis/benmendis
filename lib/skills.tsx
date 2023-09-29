@@ -1,6 +1,7 @@
-import { Icons } from "@/components/layout/icons";
-import { type Icon as LucideIcon } from "lucide-react";
 import { ReactElement } from "react";
+import { Icons } from "@/components/layout/icons";
+
+import { type Icon as LucideIcon } from "lucide-react";
 
 interface techType {
   name: string,

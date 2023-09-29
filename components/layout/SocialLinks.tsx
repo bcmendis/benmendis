@@ -1,9 +1,8 @@
 "use client"
-
 import Link from "next/link";
-import { buttonVariants} from "@/components/ui/button";
 import { Links } from "@/config/site";
 
+import { buttonVariants} from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,

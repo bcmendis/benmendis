@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
-import { Icons } from "../layout/icons";
 import { FC } from "react";
+import { Icons } from "../layout/icons";
+import { cn } from "@/lib/utils";
 
 interface ChatHeaderProps {
   isOpen: boolean

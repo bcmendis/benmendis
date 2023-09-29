@@ -9,10 +9,10 @@ const PortfolioPage = () => {
           return (
             <div
               key={i}
-              className="w-full group hover:scale-105 text-sm sm:text-base mb-2"
+              className="w-full group hover:scale-105 text-sm sm:text-base mb-2 transition-all ease-out"
             >
               <a target="_blank" href={project.link}>
-                <div className="relative rounded-lg overflow-hidden">
+                <div className="relative bg-background rounded-lg overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
