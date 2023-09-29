@@ -21,16 +21,20 @@ interface RootLayoutProps {
 export default function RootLayout({children}: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
+      {/* check for tailwind support of new viewport units "svh, lvh & dvh"
+      background image jumping in mobile browsers 
+      this solution seems to work on Chrome/Android for now*/}
       <body
+        
         className={cn(
-          "min-h-screen bg-fixed bg-blob-scene-pattern-light dark:bg-blob-scene-pattern-dark bg-cover font-sans antialiased",
+          "supports-[height:100cqh]:h-[100cqh]  bg-fixed bg-cover bg-no-repeat bg-blob-scene-pattern-light dark:bg-blob-scene-pattern-dark font-sans antialiased",
           fontSans.variable
         )}
       >
         <Providers>
           <main className="antialiased">
             <NavBar />
-            <section className="container py-6">{children}</section>
+            <section className="container py-8">{children}</section>
             <Toaster />
           </main>
           <Chat />

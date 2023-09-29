@@ -12,7 +12,7 @@ const ChatHeader: FC<ChatHeaderProps> = ({isOpen}) => {
       <div
         className={cn(
           "flex-col items-start text-sm",
-          `${isOpen ? "flex" : "hidden lg:flex"} `
+          `${isOpen ? "flex" : "hidden xl:flex"} `
         )}
       >
         <p className="text-xs">Chat with </p>
@@ -22,7 +22,7 @@ const ChatHeader: FC<ChatHeaderProps> = ({isOpen}) => {
         </div>
       </div>
       {!isOpen && (
-        <div className="flex lg:hidden aspect-square">
+        <div className="flex xl:hidden aspect-square">
           <div className="absolute top-2 left-3 w-2 h-2 rounded-full bg-green-400" />
           <Icons.messageCircle className="h-8 w-8 text-accent-foreground" />
         </div>

@@ -20,17 +20,21 @@ const Chat: FC = () => {
   }
 
   return (
-    <Accordion
-      type="single"
-      collapsible
-      className="relative z-40 shadow-xl"
-    >
+    <Accordion type="single" collapsible className="relative z-40 shadow-xl">
       <AccordionItem value="item-1">
-        <div className="fixed right-8 ml-8 lg:w-72 bottom-6 bg-muted border border-b-0 border-muted rounded-md ">
+        <div
+          className={cn(
+            "fixed right-6 ml-8 2xl:w-[28rem] bottom-6 bg-muted border border-b-0 border-muted rounded-md ",
+            {
+              "right-7 ml-7 -mb-6 sm:mb-0": isOpen,
+              "xl:w-[15rem]": !isOpen,
+            }
+          )}
+        >
           <div className="w-full h-full flex flex-col">
             <AccordionTrigger
               onClick={e => onClickHandler(e)}
-              className={cn("px-2 lg:px-6 rounded-md", {
+              className={cn("px-2 xl:px-6 rounded-md", {
                 "lg:border-b-2 lg:border-accent": !isOpen,
                 "border-b-2 border-accent": isOpen,
               })}
@@ -38,7 +42,7 @@ const Chat: FC = () => {
               <ChatHeader isOpen={isOpen} />
             </AccordionTrigger>
             <AccordionContent>
-              <div className="flex flex-col h-80">
+              <div className="flex flex-col h-[18rem] sm:h-80 xl:h-[28rem]">
                 <ChatMessages className="px-2 py-3 flex-1" />
                 <ChatInput className="px-2 lg:px-4" />
               </div>
