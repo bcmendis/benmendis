@@ -6,6 +6,8 @@ interface MarkdownLiteProps {
   text: string;
 }
 
+const hostName = "benmendis.vercel.app";
+
 const MarkdownLite: FC<MarkdownLiteProps> = ({ text }) => {
   const linkRegex = /\[(.+?)\]\((.+?)\)/g;
   const parts = [];
@@ -18,21 +20,44 @@ const MarkdownLite: FC<MarkdownLiteProps> = ({ text }) => {
     const matchStart = match.index;
     const matchEnd = matchStart + fullMatch.length;
 
+    const linkObj = new URL(linkUrl);
+
+    console.log("Parts",parts);
+    console.log("link URL",linkUrl);
+    console.log("Link obj", linkObj);
+    
+    
+
     if (lastIndex < matchStart) {
       parts.push(text.slice(lastIndex, matchStart));
     }
 
-    parts.push(
-      <Link
-        target="_blank"
-        rel="noopener noreferrer"
-        className="break-words underline underline-offset-2 text-accent"
-        key={linkUrl}
-        href={linkUrl}
-      >
-        {linkText}
-      </Link>
-    );
+    if (linkObj.hostname === hostName) {
+      console.log("internal link");
+      parts.push(
+        <Link
+          rel="noreferrer"
+          className="break-words underline underline-offset-2 text-accent"
+          key={linkObj.pathname}
+          href={linkObj.pathname}
+        >
+          {linkText}
+        </Link>
+      );
+    } else {
+      parts.push(
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          className="break-words underline underline-offset-2 text-accent"
+          key={linkUrl}
+          href={linkUrl}
+        >
+          {linkText}
+        </Link>
+      );
+    }
+
 
     lastIndex = matchEnd;
   }

@@ -95,6 +95,7 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
     >
       <div className="relative mt-4 flex-1 overflow-hidden rounded-lg border-none outline-none">
         <TextareaAutosize
+          name="chatInput"
           ref={textAreaRef}
           rows={2}
           maxRows={4}

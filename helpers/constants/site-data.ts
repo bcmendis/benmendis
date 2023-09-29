@@ -129,4 +129,24 @@ https://benmendis.vercel.app/
     </project>
 </content>
 </url>
+
+<url>
+<loc>https://benmendis.vercel.app/reviews</loc>
+<desc>Review Page where visitors can leave a review on what they think of Ben's website. Sign-in required.</desc>
+</url>
+
+<url>
+<loc>https://benmendis.vercel.app/contact</loc>
+<desc>Contact Page that contains Ben's information and a contact form which visitors can fill to contact Ben.</desc>
+</url>
+
+<url>
+<loc>https://www.linkedin.com/in/ben-mendis/</loc>
+<desc>Ben's professional LinkedIn profile</desc>
+</url>
+
+<url>
+<loc>https://github.com/bcmendis</loc>
+<desc>Ben's Github profile</desc>
+</url>
 `;
