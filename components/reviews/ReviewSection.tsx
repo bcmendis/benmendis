@@ -58,13 +58,13 @@ const ReviewSection: FC<ReviewSectionProps> = ({ session }) => {
         {data &&
           !isLoading &&
           !isError &&
-          data.map((review: ReviewPostItem) => (
+          data.map((review: ReviewPostItem, index: number) => (
             <div
               key={review.id}
               className="odd:sm:col-span-2 first:xl:col-start-2"
             >
               <Link href={`/reviews/${review.id}`}>
-                <ReviewPost review={review} session={session} />
+                <ReviewPost isOdd={index%2!==0} review={review} session={session} />
               </Link>
             </div>
           ))}

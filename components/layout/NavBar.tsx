@@ -17,7 +17,7 @@ const NavBar = async () => {
   const session = await getAuthSession();
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-fixed bg-cover bg-no-repeat bg-blob-scene-pattern-light dark:bg-blob-scene-pattern-dark">
+    <header className="sticky top-0 z-40 w-full bg-custom">
       <div className="container flex h-16 justify-between items-center md:gap-5">
         <Link href="/" className="flex items-center space-x-2">
           <Icons.logo className="h-6 w-6 text-accent-foreground" />

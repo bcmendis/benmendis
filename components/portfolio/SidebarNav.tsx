@@ -30,8 +30,8 @@ const SidebarNav = ({ className, items, ...props }: SidbarNavProps) => {
           className={cn(
             buttonVariants({ variant: "ghost" }),
             path === item.href
-              ? "bg-accent"
-              : "hover:bg-transparent hover:text-accent",
+              ? "bg-accent text-secondary-foreground"
+              : "hover:bg-transparent hover:text-accent text-muted-foreground",
             "sm:justify-start"
           )}
         >

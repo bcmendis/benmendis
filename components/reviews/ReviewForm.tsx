@@ -6,7 +6,10 @@ import { useRouter } from "next/navigation";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CreateReviewPayload, ReviewValidatator } from "@/lib/validators/review";
+import {
+  CreateReviewPayload,
+  ReviewValidatator,
+} from "@/lib/validators/review";
 import { cn } from "@/lib/utils";
 import TextareaAutosize from "react-textarea-autosize";
 
@@ -25,16 +28,21 @@ interface ReviewFormProps {
 const ReviewForm = ({ session }: ReviewFormProps) => {
   const router = useRouter();
 
-  const {register, handleSubmit, formState: {errors}, reset} = useForm<CreateReviewPayload>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<CreateReviewPayload>({
     resolver: zodResolver(ReviewValidatator),
     defaultValues: {
       job: "",
       employer: "",
       review: "",
     },
-    mode:"all",
+    mode: "all",
   });
-  
+
   const QueryClient = useQueryClient();
 
   const { mutate: createReview, isLoading } = useMutation({
@@ -83,10 +91,10 @@ const ReviewForm = ({ session }: ReviewFormProps) => {
     },
   });
 
-    const onSubmit = async (data: CreateReviewPayload) => {
-      createReview(data);
-      reset();
-    };
+  const onSubmit = async (data: CreateReviewPayload) => {
+    createReview(data);
+    reset();
+  };
 
   const Review = (
     <form
@@ -102,7 +110,7 @@ const ReviewForm = ({ session }: ReviewFormProps) => {
               type="text"
               id="job"
               placeholder="Job Title"
-              className={errors.job ? "border-red-500" : ""}
+              className={cn("bg-custom", { "border-red-500": errors.job })}
             />
           </div>
           <div className="w-full">
@@ -114,7 +122,7 @@ const ReviewForm = ({ session }: ReviewFormProps) => {
               type="text"
               id="employer"
               placeholder="Employer"
-              className={errors.employer ? "border-red-500" : ""}
+              className={cn("bg-custom", { "border-red-500": errors.employer })}
             />
           </div>
         </div>
@@ -126,9 +134,10 @@ const ReviewForm = ({ session }: ReviewFormProps) => {
             placeholder={`What do you think, ${
               session?.user.name?.split(" ")[0]
             }?`}
-            className={`${
-              errors.review ? "border-red-500" : ""
-            } w-full h-10 resize-none appearance-none overflow-hidden rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
+            className={cn(
+              "bg-custom w-full h-10 resize-none appearance-none overflow-hidden rounded-md border border-input px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+              { "border-red-500": errors.review }
+            )}
           />
         </div>
       </div>

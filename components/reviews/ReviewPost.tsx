@@ -5,24 +5,25 @@ import { ReviewPostItem } from "@/types/review";
 import UserAvatar from "../auth/UserAvatar";
 import { Separator } from "../ui/separator";
 import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 
 interface ReviewPostProps {
   review: ReviewPostItem;
   session: Session | null;
+  isOdd: boolean;
 }
 
-const ReviewPost: FC<ReviewPostProps> = ({ review, session }) => {
+const ReviewPost: FC<ReviewPostProps> = ({ isOdd, review, session }) => {
   const createdAt = new Date(review.createdAt);
-
+  console.log(isOdd, review.author.name);
+  
   //remove h-full when grid-rows[masonry] is supported
 
   return (
     <div
-      className={`flex flex-col items-center pt-2 bg-card border ${
-        session?.user.id === review.authorId
-          ? "border-accent"
-          : "border-border"
-      } rounded-lg h-full`}
+      className={`flex flex-col items-center pt-2 bg-custom border rounded-lg h-full overflow-hidden ${
+        session?.user.id === review.authorId ? "border-accent" : "border-border"
+      }`}
     >
       <div className="flex items-center justify-center w-full h-full mb-2 text-center p-3 text-xl font-semibold">
         <div>
@@ -31,14 +32,20 @@ const ReviewPost: FC<ReviewPostProps> = ({ review, session }) => {
           <span className="text-accent-foreground text-3xl"> &quot;</span>
         </div>
       </div>
-        <Separator
-          className={
-            session?.user.id === review.authorId
-              ? "bg-accent"
-              : "bg-border"
+      <Separator
+        className={
+          session?.user.id === review.authorId ? "bg-accent" : "bg-border"
+        }
+      />
+      <div
+        className={cn(
+          "flex w-full justify-between gap-3 p-3 text-sm flex-wrap bg-card",
+          {
+            "flex-col items-start": isOdd,
+            "items-center": !isOdd,
           }
-        />
-      <div className="flex w-full items-center justify-between gap-3 p-3 text-sm flex-wrap">
+        )}
+      >
         <div className="flex items-center gap-3">
           <UserAvatar
             className="h-8 w-8"
@@ -54,7 +61,9 @@ const ReviewPost: FC<ReviewPostProps> = ({ review, session }) => {
         </div>
         <time
           dateTime={createdAt.toDateString()}
-          className="text-muted-foreground"
+          className={cn("text-muted-foreground text-right", {
+            "ml-3": isOdd,
+          })}
         >
           {format(createdAt, "MMMM d, yyyy")}
         </time>
