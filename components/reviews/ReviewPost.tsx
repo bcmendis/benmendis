@@ -15,7 +15,6 @@ interface ReviewPostProps {
 
 const ReviewPost: FC<ReviewPostProps> = ({ isOdd, review, session }) => {
   const createdAt = new Date(review.createdAt);
-  console.log(isOdd, review.author.name);
   
   //remove h-full when grid-rows[masonry] is supported
 

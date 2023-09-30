@@ -192,6 +192,6 @@ removing blue highlight on tap in mobile
     @apply text-2xl sm:text-3xl font-semibold;
   }
   .bg-custom {
-    @apply bg-fixed bg-cover bg-no-repeat bg-blob-scene-pattern-light dark:bg-blob-scene-pattern-dark;
+    @apply bg-background bg-none sm:bg-blob-scene-pattern-light sm:dark:bg-blob-scene-pattern-dark bg-left-bottom bg-fixed bg-cover bg-no-repeat ;
   }
 }

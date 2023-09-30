@@ -27,7 +27,7 @@ export default function RootLayout({children}: RootLayoutProps) {
       <body
         
         className={cn(
-          "supports-[height:100cqh]:h-[100cqh]  bg-fixed bg-cover bg-no-repeat bg-blob-scene-pattern-light dark:bg-blob-scene-pattern-dark font-sans antialiased",
+          "supports-[height:100cqh]:h-[100cqh] bg-custom font-sans antialiased",
           fontSans.variable
         )}
       >
