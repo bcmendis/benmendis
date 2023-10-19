@@ -25,9 +25,8 @@ export default function RootLayout({children}: RootLayoutProps) {
       background image jumping in mobile browsers 
       this solution seems to work on Chrome/Android for now*/}
       <body
-        
         className={cn(
-          "supports-[height:100cqh]:h-[100cqh] bg-custom font-sans antialiased",
+          "supports-[height:100cqh]:h-[100cqh] supports-[height:100svh]:h-[100svh] bg-custom font-sans antialiased",
           fontSans.variable
         )}
       >

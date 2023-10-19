@@ -28,7 +28,7 @@ const ContactCard: FC<ContactCardProps> = async ({}) => {
   return (
     <Card className="container flex items-center p-0">
       <CardContent className="flex flex-col sm:flex-row sm:items-center w-full h-full p-3 md:p-6 gap-6">
-        <ContactProfile session={session} className="w-full sm:w-1/2 lg:w-1/3 h-fit" />
+        <ContactProfile session={session} className="w-full sm:w-1/2 lg:w-1/3 h-fit bg-background" />
         <ContactForm user={user} className="w-full sm:w-1/2 lg:w-2/3" />
       </CardContent>
     </Card>
