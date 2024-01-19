@@ -127,6 +127,7 @@ const ContactForm: FC<ContactFormProps> = ({ user, className }) => {
           } p-1`}
         >
           {errors.phone ? `${errors.phone.message}` : "Phone"}
+          <span className="ml-1 text-xs text-muted-foreground">{!errors.phone ? "(optional)" : null}</span>
         </Label>
         <Input
           {...register("phone")}
@@ -143,6 +144,7 @@ const ContactForm: FC<ContactFormProps> = ({ user, className }) => {
           } p-1`}
         >
           {errors.job ? `${errors.job.message}` : "Job"}
+          <span className="ml-1 text-xs text-muted-foreground">{!errors.job ? "(optional)" : null}</span>
         </Label>
         <Input
           {...register("job")}
@@ -159,6 +161,7 @@ const ContactForm: FC<ContactFormProps> = ({ user, className }) => {
           } p-1`}
         >
           {errors.employer ? `${errors.employer.message}` : "Employer"}
+          <span className="ml-1 text-xs text-muted-foreground">{!errors.employer ? "(optional)" : null}</span>
         </Label>
         <Input
           {...register("employer")}
