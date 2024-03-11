@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# planetscale sql dump @ config
+/pscale_dump_benmendis_main_20240311_114254
+/config.load
