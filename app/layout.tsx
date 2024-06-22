@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import { cn } from "@/lib/utils";
 import { fontSans } from "@/lib/fonts";
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import Providers from './providers';
 import NavBar from '@/components/layout/NavBar';
@@ -38,6 +39,7 @@ export default function RootLayout({children}: RootLayoutProps) {
           </main>
           <Chat />
         </Providers>
+        <SpeedInsights />
         <Analytics debug={false} />
       </body>
     </html>

@@ -63,9 +63,9 @@ const ReviewSection: FC<ReviewSectionProps> = ({ session }) => {
               key={review.id}
               className="odd:sm:col-span-2 first:xl:col-start-2"
             >
-              <Link href={`/reviews/${review.id}`}>
+              {/* <Link href={`/reviews/${review.id}`}> */}
                 <ReviewPost isOdd={index%2!==0} review={review} session={session} />
-              </Link>
+              {/* </Link> */}
             </div>
           ))}
       </div>
