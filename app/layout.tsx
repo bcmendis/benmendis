@@ -34,7 +34,7 @@ export default function RootLayout({children}: RootLayoutProps) {
         <Providers>
           <main className="antialiased">
             <NavBar />
-            <section className="container py-8">{children}</section>
+            <section className="py-8">{children}</section>
             <Toaster />
           </main>
           <Chat />

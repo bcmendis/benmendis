@@ -27,7 +27,7 @@ export const SpecialPageWrapper: FC<SpecialPageWrapperProps> = ({
 }) => {
   return (
     <div className="flex justify-center items-center">
-      <div className="sm:container h-full sm:max-w-6xl mx-auto flex flex-col items-center justify-center gap-3">
+      <div className="container h-full sm:max-w-6xl mx-auto flex flex-col items-center justify-center gap-3">
         <Link
           href="/"
           className={cn(

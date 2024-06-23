@@ -20,6 +20,7 @@ import {
   MessageCircle,
   Loader2,
   CornerDownLeft,
+  Star,
   type Icon as LucideIcon,
 } from "lucide-react";
 
@@ -45,6 +46,7 @@ export const Icons = {
   loader2: Loader2,
   cornerDownLeft: CornerDownLeft,
   messageCircle: MessageCircle,
+  star: Star,
   linkedIn: Linkedin,
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>

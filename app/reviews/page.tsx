@@ -10,7 +10,7 @@ const page: FC<pageProps> = async ({}) => {
 
 
   return (
-    <div className="flex flex-col items-center gap-y-10">
+    <div className="container flex flex-col items-center gap-y-10">
       <ReviewForm session={session} />
       <ReviewSection session={session} />
     </div>

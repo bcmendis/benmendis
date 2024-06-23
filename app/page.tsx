@@ -6,7 +6,7 @@ import Review from "@/components/home/Review";
 export default function Home() {
   //origin test
   return (
-    <div className="space-y-10">
+    <div className="container space-y-10">
       <Hero />
       <Skills />
       <Review />
