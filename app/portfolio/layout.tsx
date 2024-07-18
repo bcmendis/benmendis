@@ -45,7 +45,7 @@ const PorfolioLayout = ({ children }: PorfolioLayoutProps) => {
         <Separator className="my-6" />
         </div>
         <div className="flex flex-col space-y-4 lg:flex-row lg:space-x-24 lg:space-y-0">
-          <aside className="bg-background sm:bg-custom overflow-y-scroll lg:self-start sticky mx-0 lg:-mx-4 w-full lg:min-w-fit lg:w-1/5 py-3 sm:py-3 sm:px-2 lg:py-0 lg:px-0 top-16 lg:top-20 lg:rounded-lg z-10">
+          <aside className="bg-background scrollbar-w-2 scrollbar-thumb-dark sm:bg-custom overflow-x-scroll scrol lg:self-start sticky mx-0 lg:-mx-4 w-full lg:min-w-fit lg:w-1/5 py-3 sm:py-3 lg:py-0 lg:px-0 top-16 lg:top-20 lg:rounded-lg z-10">
             <SidebarNav items={sidebarNavItems} />
           </aside>
           <div className="px-8 mx-auto sm:mx-0 sm:px-0 flex flex-1 w-full lg:w-4/5 lg:max-w-4xl">{children}</div>

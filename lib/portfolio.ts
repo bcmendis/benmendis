@@ -6,6 +6,7 @@ import bookstore from "@/public/assets/portfolio/hobbyProjects/bookStore.png";
 import blog from "@/public/assets/portfolio/hobbyProjects/blog.png";
 import jokeGpt from "@/public/assets/portfolio/hobbyProjects/jokeGpt.png";
 import login from "@/public/assets/portfolio/hobbyProjects/login.png";
+import autoStonx from "@/public/assets/portfolio/hobbyProjects/autoStonx.png";
 
 export type webAppsType = {
   title: string;
@@ -29,6 +30,14 @@ export const workProjects: webAppsType[] = [
 ];
 
 export const hobbyProjects: webAppsType[] = [
+  {
+    title: "Auto Stonx",
+    link: "https://auto-stonx-bcmendis-projects.vercel.app/",
+    image: autoStonx,
+    description: "Automated Stock Trading Platform with Drag & Drop Functionality",
+    featuredTech: "React Flow",
+    isFeatured: true,
+  },
   {
     title: "Book Store",
     link: "https://book-store-bcmendis.vercel.app/",
