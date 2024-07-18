@@ -102,7 +102,7 @@ removing blue highlight on tap in mobile
 }
 
 .scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
-  border-radius: 100rem;
+  border-radius: 0.25rem;
 }
 
 

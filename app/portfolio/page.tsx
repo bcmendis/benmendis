@@ -64,7 +64,7 @@ const MapProjects = ({ projectList }: mapProjectsProps) => {
                   src={project.image}
                   alt={project.title}
                   priority
-                  className="w-full object-cover opacity-80 group-hover:opacity-100 group-ease-in"
+                  className="w-full object-cover opacity-80 group-hover:opacity-100 group-ease-in aspect-video"
                 />
                 <div className="absolute inset-x-0 bottom-0 p-2 flex items-center justify-between w-full flex-wrap bg-black/100 dark:bg-black/70">
                   <span className="text-accent dark:text-accent-foreground font-bold">
