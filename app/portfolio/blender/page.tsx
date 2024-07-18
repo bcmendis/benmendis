@@ -32,8 +32,8 @@ const BlenderPage = () => {
           </p>
         </div>
         <Separator />
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 w-full h-full gap-6 sm:gap-4">
-        <div className="flex flex-col w-full h-96 sm:h-64">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full h-full gap-6 sm:gap-4">
+        <div className="flex flex-col w-full h-96 sm:h-72 lg:h-64">
           <Suspense fallback={<ThreeJsLoader />}>
             <Canvas className="border flex flex-1 w-full rounded-t-xl">
               <color attach="background" args={["lightblue"]} />
@@ -56,7 +56,7 @@ const BlenderPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col w-full h-96 sm:h-64">
+        <div className="flex flex-col w-full h-96 sm:h-72 lg:h-64">
           <Suspense fallback={<ThreeJsLoader />}>
             <Canvas className="border flex flex-1 w-full rounded-t-xl">
               <color attach="background" args={["#ddd6fe"]} />
@@ -79,7 +79,7 @@ const BlenderPage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col w-full h-96 sm:h-64">
+        <div className="flex flex-col w-full h-96 sm:h-72 lg:h-64">
           <Suspense fallback={<ThreeJsLoader />}>
             <Canvas className="border flex flex-1 w-full rounded-t-xl">
               <color attach="background" args={["#bbf7d0"]} />
